@@ -1,0 +1,438 @@
+
+
+
+
+---------------------------
+|   QUETZAL-1 TELEMETRY   |
+---------------------------
+Identifier:                  QUETZAL1
+
+---------------------------
+|          CDHS           |
+---------------------------
+RTC (hh-mm-ss dd-mm-yy):     0 29 52 0 0 0
+ADM Status (a1 a2 a3 a4):    0 0 0 0
+EPS Status:                  0x53
+HEATER Status (A/M, On/Off): 9 , 15
+ADCS Status:                 0x53
+PLD Status:                  0x53
+ADM Software Reset Counter:  11
+EPS Software Reset Counter:  0
+ADCS Software Reset Counter: 0
+ADCS Hardware Reset Counter: 0
+COMM Hardware Reset Counter: 0
+Reset Counter:               16278
+
+---------------------------
+|           EPS           |
+---------------------------
+-----------Temps-----------
+TMP100 (degC):               253
+----------BQ27441----------
+State of Charge (%):         84
+Battery Voltage (mV):        3950.17549
+Average Current (mA):        -434.989
+Remaining Capacity (mAh):    3025.4244
+Average Power (mW):          -1724.1736
+State of Health (%):         90
+---------INA260 1----------
+Channel 1 Voltage (V):       0.0
+Channel 1 Current (mA):      1.2218
+---------INA260 2----------
+Channel 2 Voltage (V):       3.87345
+Channel 2 Current (mA):      401.9722
+---------INA260 3----------
+Channel 3 Voltage (V):       3.90915
+Channel 3 Current (mA):      1.2218
+----Subsystem Currents-----
+ADCS Current (mA):           0
+COMM Current (mA):           71
+PLD Current (mA):            0
+HTR Current (mA):            270
+-----Overcurrent Flags-----
+ADCS Overcurrent:            0
+COMM Overcurrent:            0
+PLD Overcurrent:             0
+Heater Overcurrent:          0
+----Short Circuit Flags----
+ADCS Short Circuit:          0
+COMM Short Circuit:          0
+PLD Short Circuit:           0
+Heater Short Circuit:        0
+----Communication Flags----
+INA260 No. 1:                1
+INA260 No. 2:                1
+INA260 No. 3:                1
+BQ27441:                     1
+TMP100:                      0
+----Transmission Flags-----
+INA260 No. 1:                1
+INA260 No. 2:                1
+INA260 No. 3:                1
+BQ27441:                     1
+TMP100:                      0
+
+---------------------------
+|          ADCS           |
+---------------------------
+------------Gyro-----------
+Gyro X (deg/s):              -0.392156862745
+Gyro Y (deg/s):              -0.392156862745
+Gyro Z (deg/s):              -0.392156862745
+--------Magnetometer-------
+Mag X (uT):                  -14.8773193359
+Mag Y (uT):                  -23.3276367188
+Mag Z (uT):                  -6.40869140625
+------------ADC1-----------
+ADC1 Ch.1 (V):               0.0
+ADC1 Ch.2 (V):               0.0
+ADC1 Ch.3 (V):               0.0
+ADC1 Ch.4 (V):               0.0
+ADC1 Ch.5 (V):               0.0
+ADC1 Ch.6 (V):               0.0
+------------ADC2-----------
+ADC2 Ch.1 (V):               0.0
+ADC2 Ch.2 (V):               0.0
+ADC2 Ch.3 (V):               0.0
+ADC2 Ch.4 (V):               0.0
+ADC2 Ch.5 (V):               0.0
+ADC2 Ch.6 (V):               0.0
+-----------Temps-----------
+BNO055 Temperature (degC):   20
+TMP100 Temperature (degC):   19
+----Transmission Flags-----
+BNO055:                      1
+ADC1:                        1
+ADC2:                        1
+TMP100:                      1
+
+---------------------------
+|          COMM           |
+---------------------------
+Package Counter:             1
+
+---------------------------
+|           PLD           |
+---------------------------
+Operation Mode:              0x0
+Picture Counter:             0
+
+---------------------------
+|       RAM PARAMS        |
+---------------------------
+CDHS Cycle Time:             10
+CDHS WDT Time:               24
+ADM SOC Limit:               15
+ADCS SOC Limit:              30
+COMMS SOC Limit:             0
+PLD SOC Limit:               70
+HTR Cycle Time:              48
+Heater Emergency On Time:    1
+Heater Emergency Off Time:   10
+ADM Cycle Time:              1
+ADM Burn Time:               60
+ADM Max Cycles:              4
+ADM Wait Time 1:             30
+ADM Wait Time 2:             30
+ADM Enable:                  1
+COMM Cycle Time:             5
+PLD Cycle Time:              8
+PLD Operation Mode:          1
+Camera Resolution:           3
+Camera Exposure:             1
+Camera Picture Save Time:    3
+Payload Enable:              0
+
+UVG Message:                 UVG a Guatemala, SI se pudo
+
+
+
+
+---------------------------
+|   QUETZAL-1 TELEMETRY   |
+---------------------------
+Identifier:                  QUETZAL1
+
+---------------------------
+|          CDHS           |
+---------------------------
+RTC (hh-mm-ss dd-mm-yy):     0 30 2 0 0 0
+ADM Status (a1 a2 a3 a4):    0 0 0 0
+EPS Status:                  0x53
+HEATER Status (A/M, On/Off): 9 , 15
+ADCS Status:                 0x53
+PLD Status:                  0x53
+ADM Software Reset Counter:  21
+EPS Software Reset Counter:  0
+ADCS Software Reset Counter: 0
+ADCS Hardware Reset Counter: 0
+COMM Hardware Reset Counter: 0
+Reset Counter:               16278
+
+---------------------------
+|           EPS           |
+---------------------------
+-----------Temps-----------
+TMP100 (degC):               253
+----------BQ27441----------
+State of Charge (%):         84
+Battery Voltage (mV):        3950.17549
+Average Current (mA):        -437.4328
+Remaining Capacity (mAh):    3024.44688
+Average Power (mW):          -1732.4824
+State of Health (%):         90
+---------INA260 1----------
+Channel 1 Voltage (V):       0.0
+Channel 1 Current (mA):      1.2218
+---------INA260 2----------
+Channel 2 Voltage (V):       3.87345
+Channel 2 Current (mA):      404.4158
+---------INA260 3----------
+Channel 3 Voltage (V):       3.90915
+Channel 3 Current (mA):      1.2218
+----Subsystem Currents-----
+ADCS Current (mA):           0
+COMM Current (mA):           71
+PLD Current (mA):            0
+HTR Current (mA):            271
+-----Overcurrent Flags-----
+ADCS Overcurrent:            0
+COMM Overcurrent:            0
+PLD Overcurrent:             0
+Heater Overcurrent:          0
+----Short Circuit Flags----
+ADCS Short Circuit:          0
+COMM Short Circuit:          0
+PLD Short Circuit:           0
+Heater Short Circuit:        0
+----Communication Flags----
+INA260 No. 1:                1
+INA260 No. 2:                1
+INA260 No. 3:                1
+BQ27441:                     1
+TMP100:                      0
+----Transmission Flags-----
+INA260 No. 1:                1
+INA260 No. 2:                1
+INA260 No. 3:                1
+BQ27441:                     1
+TMP100:                      0
+
+---------------------------
+|          ADCS           |
+---------------------------
+------------Gyro-----------
+Gyro X (deg/s):              -0.392156862745
+Gyro Y (deg/s):              -0.392156862745
+Gyro Z (deg/s):              -0.392156862745
+--------Magnetometer-------
+Mag X (uT):                  -15.6311035156
+Mag Y (uT):                  -22.5738525391
+Mag Z (uT):                  -5.64575195312
+------------ADC1-----------
+ADC1 Ch.1 (V):               0.0
+ADC1 Ch.2 (V):               0.0
+ADC1 Ch.3 (V):               0.0
+ADC1 Ch.4 (V):               0.0
+ADC1 Ch.5 (V):               0.0
+ADC1 Ch.6 (V):               0.0
+------------ADC2-----------
+ADC2 Ch.1 (V):               0.0
+ADC2 Ch.2 (V):               0.0
+ADC2 Ch.3 (V):               0.0
+ADC2 Ch.4 (V):               0.0
+ADC2 Ch.5 (V):               0.0
+ADC2 Ch.6 (V):               0.0
+-----------Temps-----------
+BNO055 Temperature (degC):   20
+TMP100 Temperature (degC):   19
+----Transmission Flags-----
+BNO055:                      1
+ADC1:                        1
+ADC2:                        1
+TMP100:                      1
+
+---------------------------
+|          COMM           |
+---------------------------
+Package Counter:             2
+
+---------------------------
+|           PLD           |
+---------------------------
+Operation Mode:              0x0
+Picture Counter:             0
+
+---------------------------
+|       RAM PARAMS        |
+---------------------------
+CDHS Cycle Time:             10
+CDHS WDT Time:               24
+ADM SOC Limit:               15
+ADCS SOC Limit:              30
+COMMS SOC Limit:             0
+PLD SOC Limit:               70
+HTR Cycle Time:              48
+Heater Emergency On Time:    1
+Heater Emergency Off Time:   10
+ADM Cycle Time:              1
+ADM Burn Time:               60
+ADM Max Cycles:              4
+ADM Wait Time 1:             30
+ADM Wait Time 2:             30
+ADM Enable:                  1
+COMM Cycle Time:             5
+PLD Cycle Time:              8
+PLD Operation Mode:          1
+Camera Resolution:           3
+Camera Exposure:             1
+Camera Picture Save Time:    3
+Payload Enable:              0
+
+UVG Message:                 UVG a Guatemala, SI se pudo
+
+
+
+
+---------------------------
+|   QUETZAL-1 TELEMETRY   |
+---------------------------
+Identifier:                  QUETZAL1
+
+---------------------------
+|          CDHS           |
+---------------------------
+RTC (hh-mm-ss dd-mm-yy):     0 30 12 0 0 0
+ADM Status (a1 a2 a3 a4):    0 0 0 0
+EPS Status:                  0x53
+HEATER Status (A/M, On/Off): 9 , 15
+ADCS Status:                 0x53
+PLD Status:                  0x53
+ADM Software Reset Counter:  31
+EPS Software Reset Counter:  0
+ADCS Software Reset Counter: 0
+ADCS Hardware Reset Counter: 0
+COMM Hardware Reset Counter: 0
+Reset Counter:               16278
+
+---------------------------
+|           EPS           |
+---------------------------
+-----------Temps-----------
+TMP100 (degC):               253
+----------BQ27441----------
+State of Charge (%):         84
+Battery Voltage (mV):        3942.20739
+Average Current (mA):        -438.6547
+Remaining Capacity (mAh):    3023.46936
+Average Power (mW):          -1736.6368
+State of Health (%):         90
+---------INA260 1----------
+Channel 1 Voltage (V):       0.0
+Channel 1 Current (mA):      1.2218
+---------INA260 2----------
+Channel 2 Voltage (V):       3.87345
+Channel 2 Current (mA):      405.6376
+---------INA260 3----------
+Channel 3 Voltage (V):       3.90915
+Channel 3 Current (mA):      1.2218
+----Subsystem Currents-----
+ADCS Current (mA):           0
+COMM Current (mA):           71
+PLD Current (mA):            0
+HTR Current (mA):            0
+-----Overcurrent Flags-----
+ADCS Overcurrent:            0
+COMM Overcurrent:            0
+PLD Overcurrent:             0
+Heater Overcurrent:          0
+----Short Circuit Flags----
+ADCS Short Circuit:          0
+COMM Short Circuit:          0
+PLD Short Circuit:           0
+Heater Short Circuit:        0
+----Communication Flags----
+INA260 No. 1:                1
+INA260 No. 2:                1
+INA260 No. 3:                1
+BQ27441:                     1
+TMP100:                      0
+----Transmission Flags-----
+INA260 No. 1:                1
+INA260 No. 2:                1
+INA260 No. 3:                1
+BQ27441:                     1
+TMP100:                      0
+
+---------------------------
+|          ADCS           |
+---------------------------
+------------Gyro-----------
+Gyro X (deg/s):              -0.392156862745
+Gyro Y (deg/s):              -0.392156862745
+Gyro Z (deg/s):              -0.392156862745
+--------Magnetometer-------
+Mag X (uT):                  -15.6311035156
+Mag Y (uT):                  -22.5738525391
+Mag Z (uT):                  -4.11987304688
+------------ADC1-----------
+ADC1 Ch.1 (V):               0.0
+ADC1 Ch.2 (V):               0.0
+ADC1 Ch.3 (V):               0.0
+ADC1 Ch.4 (V):               0.0
+ADC1 Ch.5 (V):               0.0
+ADC1 Ch.6 (V):               0.0
+------------ADC2-----------
+ADC2 Ch.1 (V):               0.0
+ADC2 Ch.2 (V):               0.0
+ADC2 Ch.3 (V):               0.0
+ADC2 Ch.4 (V):               0.0
+ADC2 Ch.5 (V):               0.0
+ADC2 Ch.6 (V):               0.0
+-----------Temps-----------
+BNO055 Temperature (degC):   20
+TMP100 Temperature (degC):   19
+----Transmission Flags-----
+BNO055:                      1
+ADC1:                        1
+ADC2:                        1
+TMP100:                      1
+
+---------------------------
+|          COMM           |
+---------------------------
+Package Counter:             3
+
+---------------------------
+|           PLD           |
+---------------------------
+Operation Mode:              0x0
+Picture Counter:             0
+
+---------------------------
+|       RAM PARAMS        |
+---------------------------
+CDHS Cycle Time:             10
+CDHS WDT Time:               24
+ADM SOC Limit:               15
+ADCS SOC Limit:              30
+COMMS SOC Limit:             0
+PLD SOC Limit:               70
+HTR Cycle Time:              48
+Heater Emergency On Time:    1
+Heater Emergency Off Time:   10
+ADM Cycle Time:              1
+ADM Burn Time:               60
+ADM Max Cycles:              4
+ADM Wait Time 1:             30
+ADM Wait Time 2:             30
+ADM Enable:                  1
+COMM Cycle Time:             5
+PLD Cycle Time:              8
+PLD Operation Mode:          1
+Camera Resolution:           3
+Camera Exposure:             1
+Camera Picture Save Time:    3
+Payload Enable:              0
+
+UVG Message:                 UVG a Guatemala, SI se pudo
