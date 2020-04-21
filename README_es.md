@@ -6,7 +6,7 @@
 
 Quetzal-1 será liberado desde la Estación Espacial Internacional el 28 de abril de 2020 a las 09:20 hrs (GMT-6). Aproximadamente 30 minutos luego de la liberación, deberá desplegar sus antenas y empezar la transmisión de datos. Para la descarga, Quetzal-1 utiliza el transmisor AX100 de GOMSpace, que transmite datos en modulación GMSK a 4800 bits/segundo sobre la frecuencia 437.200 MHz ([coordinada por IARU](http://www.amsatuk.me.uk/iaru/finished_detail.php?serialnum=653)).
 
-Los paquetes de datos estarán codificados en el formato AX.25 + HDLC, como lo muestra la imagen a continuación:
+Los paquetes de datos estarán codificados en el formato AX.25 + HDLC, con *scrambling* G3RUH y codificación NRZI. La siguiente imagen muestra el formato general de los paquetes:
 
 ![Beacon Structure](misc/beacon_structure.png)
 

@@ -26,7 +26,7 @@ This repository contains the UHF specifications of Quetzal-1, the GNURadio decod
 
 Quetzal-1 is scheduled to be deployed from the Kibo module of the International Space Station on April 28, 2020 at 09:20 hours (GMT-6). About 30 minutes after ejection, it should deploy its antennas and begin beacon transmission. For downlink, Quetzal-1 uses a GOMSpace AX100 transceiver, which will transmit GMSK-modulated data at 4800 bps at 437.200 MHz ([as coordinated by IARU](http://www.amsatuk.me.uk/iaru/finished_detail.php?serialnum=653)).
 
-Beacons will be encapsulated in AX.25 + HDLC frames, as shown in the following image:
+Beacons will be encapsulated in AX.25 + HDLC frames, with G3RUH scrambling and NRZI encoding. The following image shows the overall beacon format:
 
 ![Beacon Structure](misc/beacon_structure.png)
 
