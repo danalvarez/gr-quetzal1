@@ -1,14 +1,16 @@
+# ----------------------------------------------------------------------
 # Titulo: Modulo_HEX.py
 # Autor: Aldo Stefano Aguilar Nadalini 15170
-# Fecha: 10 de julio de 2019
+# Fecha: 19 de abril de 2019
 # Descripcion: Programa para procesar archivo .dat que contiene Beacon
-#              codificado en HEX. Este modulo devuelve los datos procesados
-# -----------------------------------------------------------------------------
+#              codificado en HEX. Este modulo devuelve los datos
+#              procesados
+# ----------------------------------------------------------------------
 
 # Librerias
 import sys
 
-# -------------------------------- FUNCIONES -----------------------------------
+# ----------------------------- FUNCIONES ------------------------------
 
 # Funcion para abrir archivo seleccionado y volverlo array de HEX values
 def HEX_select(name):
@@ -22,7 +24,8 @@ def HEX_select(name):
       sys.exit(0)
       return 0
 
-# Funcion para decodificar bytes de beacon segun QUETZAL-1 :: Beacon & Package Data v3
+# Funcion para decodificar bytes de beacon segun QUETZAL-1 :: Beacon &
+# Package Data v3
 def map_values(raw, lowLim, highLim, mapLow, mapHigh):
   m = (mapHigh - mapLow)/(highLim - lowLim)
   b = mapHigh - m*highLim
@@ -32,7 +35,7 @@ def map_values(raw, lowLim, highLim, mapLow, mapHigh):
 # Ejecucion continua para lectura de todo beacon en el HEX file
 def beacon_decode(hex_list, beacon_counter, num_beacon, display_beacon):
 
-  # ----------------------- SEGMENTACION DE BEACON ----------------------
+  # ---------------------- SEGMENTACION DE BEACON ----------------------
   cubesat_identifier = hex_list[beacon_counter:beacon_counter + 8]      # 8 bytes
   CDHS_beacon = hex_list[beacon_counter + 8:beacon_counter + 26]        # 18 bytes
   EPS_beacon = hex_list[beacon_counter + 26:beacon_counter + 56]        # 30 bytes
@@ -42,7 +45,7 @@ def beacon_decode(hex_list, beacon_counter, num_beacon, display_beacon):
   RAM_parameters = hex_list[beacon_counter + 88:beacon_counter + 110]   # 22 bytes
   cubesat_message = hex_list[beacon_counter + 110:beacon_counter + 137] # 137 bytes (Total: 137 bytes)
 
-  # ------------------------ CUBESAT IDENTIFIER -------------------------
+  # ----------------------- CUBESAT IDENTIFIER -------------------------
 
   # Procesar identificador de satelite (Bytes 0-7)
   i = 0
@@ -51,7 +54,7 @@ def beacon_decode(hex_list, beacon_counter, num_beacon, display_beacon):
       i += 1
   cubesat_identifier = ''.join(cubesat_identifier)
 
-  # ---------------------------- CDHS BEACON ----------------------------
+  # --------------------------- CDHS BEACON ----------------------------
 
   # Procesar valores de Real-time Clock (RTC)
   hora = int(CDHS_beacon[0],16)
@@ -64,7 +67,7 @@ def beacon_decode(hex_list, beacon_counter, num_beacon, display_beacon):
   # Estado de sub-modulos
   ADM_status = int(CDHS_beacon[6],16)
   EPS_status = int(CDHS_beacon[7],16)
-  HEATER_status = int(CDHS_beacon[8],16)       # HEATER Status missing in HEX
+  HEATER_status = int(CDHS_beacon[8],16)                                # HEATER Status missing in HEX
   ADCS_status = int(CDHS_beacon[9],16)
   PAYLOAD_status = int(CDHS_beacon[10],16)
 
@@ -76,7 +79,7 @@ def beacon_decode(hex_list, beacon_counter, num_beacon, display_beacon):
   COMMS_resetH = int(CDHS_beacon[15],16)
   CDHS_reset = int(CDHS_beacon[16] + CDHS_beacon[17],16)
 
-  # ---------------------------- EPS BEACON -----------------------------
+  # ---------------------------- EPS BEACON ----------------------------
 
   # ---------- Temperature Sensor (TMP100) ----------
   # Battery Temperature (C)
@@ -154,7 +157,7 @@ def beacon_decode(hex_list, beacon_counter, num_beacon, display_beacon):
 
   # HEATER Current
   HEATER_current = int(EPS_beacon[25] + EPS_beacon[26],16)
-  
+
   # --------------- EPS Control Flags ---------------
   fault_flags = int(EPS_beacon[27],16)
   FPB_flags = '{0:08b}'.format(fault_flags)
@@ -164,7 +167,7 @@ def beacon_decode(hex_list, beacon_counter, num_beacon, display_beacon):
   trans_flags_EPS = '{0:08b}'.format(transmission_flags_EPS)
 
   # ---------------------------- ADCS BEACON ----------------------------
-                                  
+
   # ------------------ Gyroscopes -------------------
   # Gyroscope X
   gyro_X = int(ADCS_beacon[0],16)
@@ -244,7 +247,7 @@ def beacon_decode(hex_list, beacon_counter, num_beacon, display_beacon):
   # Imu Temperature Sensor (C)
   BNO055_temperature = int(ADCS_beacon[21],16)
   BNO055_temperature = -(BNO055_temperature & 0x8000) | (BNO055_temperature & 0x7fff)
-  
+
   # ---------- Temperature Sensor (TMP100) ----------
   # ADCS Temperature No.1 (C)
   ADCS_temperature1 = int(ADCS_beacon[22] + ADCS_beacon[23],16)
@@ -254,13 +257,13 @@ def beacon_decode(hex_list, beacon_counter, num_beacon, display_beacon):
   transmission_flags_ADCS = int(ADCS_beacon[24],16)
   trans_flags_ADCS = '{0:08b}'.format(transmission_flags_ADCS)
 
-  # --------------------------- COMMS BEACON ----------------------------
+  # --------------------------- COMMS BEACON ---------------------------
 
   # -------------- Transciever (AX100) --------------
   # Package Counter
   package_counter = int(COMMS_beacon[0] + COMMS_beacon[1] + COMMS_beacon[2] + COMMS_beacon[3],16)
 
-  # -------------------------- PAYLOAD BEACON ---------------------------
+  # -------------------------- PAYLOAD BEACON --------------------------
 
   # --------------- Camera (ArduCAM) ----------------
   # Camera Mode of operation
@@ -268,8 +271,8 @@ def beacon_decode(hex_list, beacon_counter, num_beacon, display_beacon):
 
   # Picture Counter
   picture_counter = int(PAYLOAD_beacon[1] + PAYLOAD_beacon[2],16)
-  
-  # -------------------------- RAM PARAMETER ----------------------------
+
+  # -------------------------- RAM PARAMETER ---------------------------
   CDHS_CYCLE_TIME = int(RAM_parameters[0],16)*1000
   CDHS_WDT = int(RAM_parameters[1],16)*3600
   ADM_SOC_LIMIT = int(RAM_parameters[2],16)
@@ -293,7 +296,7 @@ def beacon_decode(hex_list, beacon_counter, num_beacon, display_beacon):
   CAM_SAVE_TIME = int(RAM_parameters[20],16)*1000
   PLD_ENABLE = int(RAM_parameters[21],16)
 
-  # ------------------------- CUBESAT MESSAGE ---------------------------
+  # ------------------------- CUBESAT MESSAGE --------------------------
 
   # Procesar mensaje de satelite (Bytes 89-115)
   i = 0
@@ -302,7 +305,7 @@ def beacon_decode(hex_list, beacon_counter, num_beacon, display_beacon):
       i += 1
   cubesat_message = ''.join(cubesat_message)
 
-  # -------------------------- BEACON STORAGE ---------------------------
+  # -------------------------- BEACON STORAGE --------------------------
   identifier = cubesat_identifier
   beacon_data = [hora, minuto, segundo, dia, mes, year, ADM_status, EPS_status, \
                HEATER_status, ADCS_status, PAYLOAD_status, ADM_resetS, \
@@ -324,120 +327,101 @@ def beacon_decode(hex_list, beacon_counter, num_beacon, display_beacon):
                PLD_OP_MODE, CAM_RESOLUTION, CAM_EXPOSURE, CAM_SAVE_TIME, PLD_ENABLE]
   messages = cubesat_message
 
-  # -------------------------- BEACON DISPLAY ---------------------------
+  # -------------------------- BEACON DISPLAY --------------------------
   if (display_beacon):
-    print ("------------------ BEACON No." + str(num_beacon + 1) + " ------------------")
-    print ("Identifier: "),
-    print (cubesat_identifier)
-    print ("----------------- CDHS -----------------")
-    print ("RTC Time: " + str(hora) + ":" + str(minuto) + ":" + str(segundo))
-    print ("RTC Date: " + str(dia) + "/" + str(mes) + "/" + str(year))
-    print ("ADM Status: " + str(ADM_status))
-    print ("EPS Status: " + str(EPS_status))
-    print ("HEATER Status: " + str(HEATER_status))
-    print ("ADCS Status: " + str(ADCS_status))
-    print ("PAYLOAD Status: " + str(PAYLOAD_status))
-    print ("ADM Software Reset Counter: " + str(ADM_resetS))
-    print ("EPS Software Reset Counter: " + str(EPS_resetS))
-    print ("ADCS Software Reset Counter: " + str(ADCS_resetS))
-    print ("ADCS Hardware Reset Counter: " + str(ADCS_resetH))
-    print ("COMMS Hardware Reset Counter: " + str(COMMS_resetH))
-    print ("CDHS Reset Counter: " + str(CDHS_reset))
-    print ("----------------- EPS ------------------")
-    print ("Temperature No.1: " + str(EPS_temperature) + " degC")
-    print ("State of Charge: " + str(state_charge) + "%")
-    print ("Battery Voltage: " + str(battery_voltage) + " V")
-    print ("Average Current: " + str(average_current) + " mA")
-    print ("Remaining Capacity: " + str(remaining_capacity) + " mAh")
-    print ("Average Power: " + str(average_power) + " mW")
-    print ("State of Health: " + str(state_health) + "%")
-    print ("CH1 Voltage: " + str(CH1_voltage) + " V")
-    print ("CH1 Current: " + str(CH1_current) + " mA")
-    print ("CH2 Voltage: " + str(CH2_voltage) + " V")
-    print ("CH2 Current: " + str(CH2_current) + " mA")
-    print ("CH3 Voltage: " + str(CH3_voltage) + " V")
-    print ("CH3 Current: " + str(CH3_current) + " mA")
-    print ("ADCS Current: " + str(ADCS_current) + " mA")
-    print ("COMMS Current: " + str(COMMS_current) + " mA")
-    print ("PAYLOAD Current: " + str(PAYLOAD_current) + " mA")
-    print ("HEATER Current: " + str(HEATER_current) + " mA")
-    print ("FPB Flags: " + FPB_flags)
-    print ("Communication Flags: " + comm_flags)
-    print ("Transmission Flags: " + trans_flags_EPS)
-    print ("---------------- ADCS ------------------")
-    print ("Gyro X: " + str(gyro_X) + " degC/s")
-    print ("Gyro Y: " + str(gyro_Y) + " degC/s")
-    print ("Gyro Z: " + str(gyro_Z) + " degC/s")
-    print ("Magnetometer X: " + str(mag_X) + " uT")
-    print ("Magnetometer Y: " + str(mag_Y) + " uT")
-    print ("Magnetometer Z: " + str(mag_Z) + " uT")
-    print ("ADC1:")
-    print ("CH1: " + str(ADC1_CH1) + " V")
-    print ("CH2: " + str(ADC1_CH2) + " V")
-    print ("CH3: " + str(ADC1_CH3) + " V")
-    print ("CH4: " + str(ADC1_CH4) + " V")
-    print ("CH5: " + str(ADC1_CH5) + " V")
-    print ("CH6: " + str(ADC1_CH6) + " V")
-    print ("ADC2:")
-    print ("CH1: " + str(ADC2_CH1) + " V")
-    print ("CH2: " + str(ADC2_CH2) + " V")
-    print ("CH3: " + str(ADC2_CH3) + " V")
-    print ("CH4: " + str(ADC2_CH4) + " V")
-    print ("CH5: " + str(ADC2_CH5) + " V")
-    print ("CH6: " + str(ADC2_CH6) + " V")
-    print ("BNO005 Temperature: " + str(BNO055_temperature) + " degC")
-    print ("Temperature No.1: " + str(ADCS_temperature1) + " degC")
-    print ("Transmission Flags: " + trans_flags_ADCS)
-    print ("---------------- COMMS -----------------")
-    print ("Package Counter: " + str(package_counter))
-    print ("--------------- PAYLOAD ----------------")
-    print ("Camera Mode: " + str(camera_mode))
-    print ("Picture Counter: " + str(picture_counter))
-    print ("------------ RAM PARAMETERS ------------")
-    print ("CDHS Cycle Time: " + str(CDHS_CYCLE_TIME))
-    print ("CDHS Watchdog: " + str(CDHS_WDT))
-    print ("ADM SOC Limit: " + str(ADM_SOC_LIMIT))
-    print ("ADCS SOC Limit: " + str(ADCS_SOC_LIMIT))
-    print ("COMMS SOC Limit: " + str(COMMS_SOC_LIMIT))
-    print ("PLD SOC Limit: " + str(PLD_SOC_LIMIT))
-    print ("HEATER Cycle Time: " + str(HEATER_CYCLE_TIME))
-    print ("HEATER Emergency On Time: " + str(HEATER_EMON_TIME))
-    print ("HEATER Emergency Off Time: " + str(HEATER_EMOFF_TIME))
-    print ("ADM Cycle Time: " + str(ADM_CYCLE_TIME))
-    print ("ADM Burn Time: " + str(ADM_BURN_TIME))
-    print ("ADM Max Cycles: " + str(ADM_MAX_CYCLES))
-    print ("ADM Wait Time 1: " + str(ADM_WAIT_TIME1))
-    print ("ADM Wait Time 2: " + str(ADM_WAIT_TIME2))
-    print ("ADM Enable: " + str(ADM_ENABLE))
-    print ("COMMS Cycle Time: " + str(COMMS_CYCLE_TIME))
-    print ("PLD Cycle Time: " + str(PLD_CYCLE_TIME))
-    print ("PLD Operation Mode: " + str(PLD_OP_MODE))
-    print ("CAM Resolution: " + str(CAM_RESOLUTION))
-    print ("CAM Exposure: " + str(CAM_EXPOSURE))
-    print ("CAM Save Time: " + str(CAM_SAVE_TIME))
-    print ("PLD Enable: " + str(PLD_ENABLE))
-    print ("----------------------------------------")
-    print ("Message: "),
-    print (cubesat_message)
-
+      print("------------------ BEACON No." + str(num_beacon + 1) + " ------------------")
+      print("Identifier: "),
+      print(cubesat_identifier)
+      print("----------------- CDHS -----------------")
+      print("RTC Time: " + str(hora) + ":" + str(minuto) + ":" + str(segundo))
+      print("RTC Date: " + str(dia) + "/" + str(mes) + "/" + str(year))
+      print("ADM Status: " + str(ADM_status))
+      print("EPS Status: " + str(EPS_status))
+      print("HEATER Status: " + str(HEATER_status))
+      print("ADCS Status: " + str(ADCS_status))
+      print("PAYLOAD Status: " + str(PAYLOAD_status))
+      print("ADM Software Reset Counter: " + str(ADM_resetS))
+      print("EPS Software Reset Counter: " + str(EPS_resetS))
+      print("ADCS Software Reset Counter: " + str(ADCS_resetS))
+      print("ADCS Hardware Reset Counter: " + str(ADCS_resetH))
+      print("COMMS Hardware Reset Counter: " + str(COMMS_resetH))
+      print("CDHS Reset Counter: " + str(CDHS_reset))
+      print("----------------- EPS ------------------")
+      print("Temperature No.1: " + str(EPS_temperature) + " degC")
+      print("State of Charge: " + str(state_charge) + "%")
+      print("Battery Voltage: " + str(battery_voltage) + " V")
+      print("Average Current: " + str(average_current) + " mA")
+      print("Remaining Capacity: " + str(remaining_capacity) + " mAh")
+      print("Average Power: " + str(average_power) + " mW")
+      print("State of Health: " + str(state_health) + "%")
+      print("CH1 Voltage: " + str(CH1_voltage) + " V")
+      print("CH1 Current: " + str(CH1_current) + " mA")
+      print("CH2 Voltage: " + str(CH2_voltage) + " V")
+      print("CH2 Current: " + str(CH2_current) + " mA")
+      print("CH3 Voltage: " + str(CH3_voltage) + " V")
+      print("CH3 Current: " + str(CH3_current) + " mA")
+      print("ADCS Current: " + str(ADCS_current) + " mA")
+      print("COMMS Current: " + str(COMMS_current) + " mA")
+      print("PAYLOAD Current: " + str(PAYLOAD_current) + " mA")
+      print("HEATER Current: " + str(HEATER_current) + " mA")
+      print("FPB Flags: " + FPB_flags)
+      print("Communication Flags: " + comm_flags)
+      print("Transmission Flags: " + trans_flags_EPS)
+      print("---------------- ADCS ------------------")
+      print("Gyro X: " + str(gyro_X) + " degC/s")
+      print("Gyro Y: " + str(gyro_Y) + " degC/s")
+      print("Gyro Z: " + str(gyro_Z) + " degC/s")
+      print("Magnetometer X: " + str(mag_X) + " uT")
+      print("Magnetometer Y: " + str(mag_Y) + " uT")
+      print("Magnetometer Z: " + str(mag_Z) + " uT")
+      print("ADC1:")
+      print("CH1: " + str(ADC1_CH1) + " V")
+      print("CH2: " + str(ADC1_CH2) + " V")
+      print("CH3: " + str(ADC1_CH3) + " V")
+      print("CH4: " + str(ADC1_CH4) + " V")
+      print("CH5: " + str(ADC1_CH5) + " V")
+      print("CH6: " + str(ADC1_CH6) + " V")
+      print("ADC2:")
+      print("CH1: " + str(ADC2_CH1) + " V")
+      print("CH2: " + str(ADC2_CH2) + " V")
+      print("CH3: " + str(ADC2_CH3) + " V")
+      print("CH4: " + str(ADC2_CH4) + " V")
+      print("CH5: " + str(ADC2_CH5) + " V")
+      print("CH6: " + str(ADC2_CH6) + " V")
+      print("BNO005 Temperature: " + str(BNO055_temperature) + " degC")
+      print("Temperature No.1: " + str(ADCS_temperature1) + " degC")
+      print("Transmission Flags: " + trans_flags_ADCS)
+      print("---------------- COMMS -----------------")
+      print("Package Counter: " + str(package_counter))
+      print("--------------- PAYLOAD ----------------")
+      print("Camera Mode: " + str(camera_mode))
+      print("Picture Counter: " + str(picture_counter))
+      print("------------ RAM PARAMETERS ------------")
+      print("CDHS Cycle Time: " + str(CDHS_CYCLE_TIME))
+      print("CDHS Watchdog: " + str(CDHS_WDT))
+      print("ADM SOC Limit: " + str(ADM_SOC_LIMIT))
+      print("ADCS SOC Limit: " + str(ADCS_SOC_LIMIT))
+      print("COMMS SOC Limit: " + str(COMMS_SOC_LIMIT))
+      print("PLD SOC Limit: " + str(PLD_SOC_LIMIT))
+      print("HEATER Cycle Time: " + str(HEATER_CYCLE_TIME))
+      print("HEATER Emergency On Time: " + str(HEATER_EMON_TIME))
+      print("HEATER Emergency Off Time: " + str(HEATER_EMOFF_TIME))
+      print("ADM Cycle Time: " + str(ADM_CYCLE_TIME))
+      print("ADM Burn Time: " + str(ADM_BURN_TIME))
+      print("ADM Max Cycles: " + str(ADM_MAX_CYCLES))
+      print("ADM Wait Time 1: " + str(ADM_WAIT_TIME1))
+      print("ADM Wait Time 2: " + str(ADM_WAIT_TIME2))
+      print("ADM Enable: " + str(ADM_ENABLE))
+      print("COMMS Cycle Time: " + str(COMMS_CYCLE_TIME))
+      print("PLD Cycle Time: " + str(PLD_CYCLE_TIME))
+      print("PLD Operation Mode: " + str(PLD_OP_MODE))
+      print("CAM Resolution: " + str(CAM_RESOLUTION))
+      print("CAM Exposure: " + str(CAM_EXPOSURE))
+      print("CAM Save Time: " + str(CAM_SAVE_TIME))
+      print("PLD Enable: " + str(PLD_ENABLE))
+      print("----------------------------------------")
+      print("Message: "),
+      print(cubesat_message)
   return beacon_data
 
-# -------------------------------- EJECUCION -----------------------------------
-
-##hex_list = HEX_select('B_HEX2.dat')
-##beacon_length = 115
-##beacon_amount = len(hex_list)/beacon_length
-##print ("No. of Beacons to read: " + str(beacon_amount))
-##beacon_counter = 0
-##num_beacon = 0
-##
-### Ejecucion continua para lectura de todo beacon en el HEX file
-##while (num_beacon < beacon_amount):
-##
-##  beacon_data = beacon_decode(hex_list, beacon_counter, num_beacon, True)
-##  #print (beacon_data)
-##
-##  # Movimiento de lectura de beacon a travez de HEX
-##  beacon_counter = beacon_counter + beacon_length
-##  num_beacon += 1
-  
+# ----------------------------------------------------------------------

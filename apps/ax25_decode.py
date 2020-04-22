@@ -13,6 +13,7 @@ from gnuradio import digital
 from gnuradio import eng_notation
 from gnuradio import filter
 from gnuradio import gr
+from gnuradio import zeromq
 from gnuradio.eng_option import eng_option
 from gnuradio.filter import firdes
 from optparse import OptionParser
@@ -46,6 +47,7 @@ class ax25_decode(gr.top_block):
         ##################################################
         # Blocks
         ##################################################
+        self.zeromq_pub_sink_0 = zeromq.pub_sink(gr.sizeof_char, 1, 'tcp://127.0.0.1:1502', 100, False, -1)
         self.satellites_strip_ax25_header_0 = satellites.strip_ax25_header()
         self.satellites_nrzi_decode_0 = satellites.nrzi_decode()
         self.satellites_hdlc_deframer_0 = satellites.hdlc_deframer(check_fcs=True, max_length=10000)
@@ -57,6 +59,7 @@ class ax25_decode(gr.top_block):
         self.digital_binary_slicer_fb_0 = digital.binary_slicer_fb()
         self.blocks_wavfile_source_0 = blocks.wavfile_source('/home/dan/Documents/repos/gr-quetzal1/recordings/example_beacon_quetzal1.wav', False)
         self.blocks_throttle_0 = blocks.throttle(gr.sizeof_float*1, samp_rate,True)
+        self.blocks_pdu_to_tagged_stream_0 = blocks.pdu_to_tagged_stream(blocks.byte_t, 'packet_len')
         self.blocks_multiply_const_vxx_0 = blocks.multiply_const_vff((5, ))
         self.blocks_add_const_vxx_0 = blocks.add_const_vff((0, ))
 
@@ -66,9 +69,11 @@ class ax25_decode(gr.top_block):
         # Connections
         ##################################################
         self.msg_connect((self.satellites_hdlc_deframer_0, 'out'), (self.satellites_strip_ax25_header_0, 'in'))
+        self.msg_connect((self.satellites_strip_ax25_header_0, 'out'), (self.blocks_pdu_to_tagged_stream_0, 'pdus'))
         self.msg_connect((self.satellites_strip_ax25_header_0, 'out'), (self.quetzal1_parse, 'in'))
         self.connect((self.blocks_add_const_vxx_0, 0), (self.blocks_multiply_const_vxx_0, 0))
         self.connect((self.blocks_multiply_const_vxx_0, 0), (self.low_pass_filter_0, 0))
+        self.connect((self.blocks_pdu_to_tagged_stream_0, 0), (self.zeromq_pub_sink_0, 0))
         self.connect((self.blocks_throttle_0, 0), (self.blocks_add_const_vxx_0, 0))
         self.connect((self.blocks_wavfile_source_0, 0), (self.blocks_throttle_0, 0))
         self.connect((self.digital_binary_slicer_fb_0, 0), (self.satellites_nrzi_decode_0, 0))

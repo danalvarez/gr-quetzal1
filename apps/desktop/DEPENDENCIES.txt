@@ -1,0 +1,4 @@
+LIBRARIES:
+pyqt5
+pyqtgraph
+zmq
