@@ -103,22 +103,36 @@ We have provided a realistic recording of a satellite beacon in `recordings/exam
 
 # Python Scripts for Data Visualization
 
-Author: Aldo Aguilar (aldostef@gmail.com)
+Credit: Aldo Aguilar (aldostef@gmail.com)
 
-A GUI was developed in `python3` to visualize beacon data. For the moment, this GUI can only graph data "post-mortem": that is, after it has been successfully decoded and saved into a `.dat` file.
+---
+:information_source: **NOTE**
 
-For the program to run correctly, please make sure you've installed `PyQt5` and `pyqtgraph` 0.10.0. To do so, run:
+As of commit `15ff8d9`, this GUI could only graph data "post-mortem". However, starting from commit `6565bdc`, the GUI can also show live beacons coming from the GNURadio decoder.
+
+---
+
+A GUI was developed in `python3` to visualize beacon data. For the program to run correctly, please make sure you've installed `PyQt5`, `pyqtgraph` 0.10.0 and `zmq`. To do so, run:
 
 	python3 -m pip install PyQt5
 	python3 -m pip install pyqtgraph==0.10.0
+	python3 -m pip install zmq
 
 Once this is done, you can run the script by going into the `apps/desktop/` directory, opening a terminal and running:
 
-	python3 -m Quetzal_1_HEX.py
+	python3 -m main.py
 
-This will open a window as shown below. You can select a beacon to visualize by clicking on *Select Hex* and navigating to one of the decoded `.dat` files (for example, choose the file in `examples/example_beacon_raw.dat`). Once selected, the GUI will automatically start displaying beacons one second at a time. You can also scan through the beacons by clicking on the fast-foward and rewind buttons.
+## Post-mortem beacon parsing
+
+Upon opening the GUI, you can select a beacon to visualize by clicking on *Select Hex* and navigating to one of the decoded `.dat` files (for example, choose the file in `examples/example_beacon_raw.dat`). Once selected, the GUI will automatically start displaying beacons one second at a time. You can also scan through the beacons by clicking on the fast-foward and rewind buttons.
 
 ![Python GUI](misc/Python_GUI.png)
+
+## Live beacon parsing
+
+You can now view decoded data live by clicking on *Connect to port*, typing `localhost` as the IP address and `1502` as the port to connnect to. Once this is done, you can test it out by running the GNURadio decoder with the example beacon recording (`examples/example_beacon_quetzal1.wav`). Upon doing this, decoded frames will start to appear in the GUI. When tracking Quetzal-1, you can use this feature to view live data.
+
+![Python GUI](misc/Python_GUI_TCP.png)
 
 # GNURadio 3.7 Installation
 
