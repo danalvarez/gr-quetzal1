@@ -11,6 +11,8 @@ This repository contains the UHF specifications of Quetzal-1, the GNURadio decod
 	* [Post-mortem Frame Decoding](#user-content-post-mortem-frame-decoding)
 		* [Example Beacon Recording](#user-content-example-beacon-recording)
 3. [Python Scripts for Data Visualization ](#user-content-python-scripts-for-data-visualization)
+	* [Post-mortem beacon parsing](#user-content-post-mortem-beacon-parsing)
+	* [Live beacon parsing](#user-content-live-beacon-parsing)
 4. [GNURadio 3.7 Installation](#user-content-gnuradio-37-installation)
 	* [Install GNURadio 3.7 Dependencies](#user-content-install-gnuradio-37-dependencies)
 	* [Install Python 2.7 modules for gr-satellites](#user-content-install-python-27-modules-for-gr-satellites)
@@ -122,13 +124,13 @@ Once this is done, you can run the script by going into the `apps/desktop/` dire
 
 	python3 -m main.py
 
-## Post-mortem beacon parsing
+## Post-mortem Beacon Parsing
 
 Upon opening the GUI, you can select a beacon to visualize by clicking on *Select Hex* and navigating to one of the decoded `.dat` files (for example, choose the file in `examples/example_beacon_raw.dat`). Once selected, the GUI will automatically start displaying beacons one second at a time. You can also scan through the beacons by clicking on the fast-foward and rewind buttons.
 
 ![Python GUI](misc/Python_GUI.png)
 
-## Live beacon parsing
+## Live Beacon Parsing
 
 You can now view decoded data live by clicking on *Connect to port*, typing `localhost` as the IP address and `1502` as the port to connnect to. Once this is done, you can test it out by running the GNURadio decoder with the example beacon recording (`examples/example_beacon_quetzal1.wav`). Upon doing this, decoded frames will start to appear in the GUI. When tracking Quetzal-1, you can use this feature to view live data.
 
