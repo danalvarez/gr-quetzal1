@@ -64,7 +64,8 @@ class Pantalla_RAM(QtWidgets.QDialog, Ui_Dialog):
 		else:
 			width_factor = 0.475
 			height_factor = 0.6
-		self.setFixedSize(QtCore.QSize(screen.width() * width_factor, screen.height() * height_factor))
+		#self.setFixedSize(QtCore.QSize(screen.width() * width_factor, screen.height() * height_factor))
+		self.resize(QtCore.QSize(parent.frameGeometry().width() * width_factor, parent.frameGeometry().height() * height_factor))
 
 		# Centrado de ventana en pantalla
 		qr = self.frameGeometry()

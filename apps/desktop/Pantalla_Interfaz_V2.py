@@ -150,7 +150,9 @@ class Pantalla_Interfaz(QtWidgets.QMainWindow, Ui_MainWindow):
 			else:
 				width_factor = 0.975
 				height_factor = 0.90
-			self.setFixedSize(QtCore.QSize(screen.width() * width_factor, screen.height() * height_factor))
+			#self.setFixedSize(QtCore.QSize(screen.width() * width_factor, screen.height() * height_factor))
+			self.resize(QtCore.QSize(screen.width() * width_factor, screen.height() * height_factor))
+			self.setWindowFlag(QtCore.Qt.WindowMaximizeButtonHint, True)
 
 			# Centrado de ventana en pantalla
 			qr = self.frameGeometry()
@@ -176,10 +178,10 @@ class Pantalla_Interfaz(QtWidgets.QMainWindow, Ui_MainWindow):
 		self.beacon_data = 0											# Variable que almacena los datos de beacon procesados de linea de archivo o linea recibida por puerto TCP
 
 		# CDHS Dialog
-		self.pantalla_CDHS = Pantalla_CDHS()
+		self.pantalla_CDHS = Pantalla_CDHS(parent=self)
 
 		# RAM Dialog
-		self.pantalla_RAM = Pantalla_RAM()
+		self.pantalla_RAM = Pantalla_RAM(parent=self)
 
 		# Configuracion de timer que actualiza data
 		self.timer = QtCore.QTimer()
