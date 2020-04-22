@@ -2012,7 +2012,10 @@ class quetzal1_parse(gr.basic_block):
     </param>
     <param>
       <key>comment</key>
-      <value></value>
+      <value>Send decoded frames
+(with CSP header)
+to Python GUI to be 
+parsed and displayed.</value>
     </param>
     <param>
       <key>affinity</key>
