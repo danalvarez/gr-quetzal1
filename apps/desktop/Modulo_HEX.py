@@ -246,7 +246,7 @@ def beacon_decode(hex_list, beacon_counter, num_beacon, display_beacon):
   # ----------- IMU Temperature (BNO055) ------------
   # Imu Temperature Sensor (C)
   BNO055_temperature = int(ADCS_beacon[21],16)
-  BNO055_temperature = -(BNO055_temperature & 0x8000) | (BNO055_temperature & 0x7fff)
+  BNO055_temperature = -(BNO055_temperature & 0x80) | (BNO055_temperature & 0x7f)
 
   # ---------- Temperature Sensor (TMP100) ----------
   # ADCS Temperature No.1 (C)
