@@ -35,6 +35,7 @@ class ax25_decode(gr.top_block):
         self.log = log = 0
         self.homedir = homedir = ""
         self.hhmmss = hhmmss = ""
+        self.gain_mu = gain_mu = 0.175*3
         self.filename_raw_beacon = filename_raw_beacon = ""
         self.filename_parsed_beacon = filename_parsed_beacon = ""
         self.filename_image_metadata = filename_image_metadata = ""
@@ -52,10 +53,10 @@ class ax25_decode(gr.top_block):
         self.satellites_nrzi_decode_0 = satellites.nrzi_decode()
         self.satellites_hdlc_deframer_0 = satellites.hdlc_deframer(check_fcs=True, max_length=10000)
         self.quetzal1_parse = quetzal1_parse.quetzal1_parse(filename_parsed_beacon='', filename_raw_beacon='')
-        self.low_pass_filter_0 = filter.fir_filter_fff(1, firdes.low_pass(
-        	1, samp_rate, data_rate, data_rate/2, firdes.WIN_BLACKMAN, 6.76))
+        self.low_pass_filter_0_0 = filter.fir_filter_fff(1, firdes.low_pass(
+        	1, 48000, 2400, 2000, firdes.WIN_HAMMING, 6.76))
         self.digital_descrambler_bb_0 = digital.descrambler_bb(0x21, 0, 16)
-        self.digital_clock_recovery_mm_xx_0 = digital.clock_recovery_mm_ff(samp_per_sym*(1+0.0), 0.25*0.175*0.175, 0.5, 0.175, 0.005)
+        self.digital_clock_recovery_mm_xx_0_0 = digital.clock_recovery_mm_ff(10, 0.25*gain_mu*gain_mu, 0.5, gain_mu, 0.005)
         self.digital_binary_slicer_fb_0 = digital.binary_slicer_fb()
         self.blocks_wavfile_source_0 = blocks.wavfile_source('/home/dan/Documents/repos/gr-quetzal1/recordings/example_beacon_quetzal1.wav', False)
         self.blocks_throttle_0 = blocks.throttle(gr.sizeof_float*1, samp_rate,True)
@@ -72,14 +73,14 @@ class ax25_decode(gr.top_block):
         self.msg_connect((self.satellites_strip_ax25_header_0, 'out'), (self.blocks_pdu_to_tagged_stream_0, 'pdus'))
         self.msg_connect((self.satellites_strip_ax25_header_0, 'out'), (self.quetzal1_parse, 'in'))
         self.connect((self.blocks_add_const_vxx_0, 0), (self.blocks_multiply_const_vxx_0, 0))
-        self.connect((self.blocks_multiply_const_vxx_0, 0), (self.low_pass_filter_0, 0))
+        self.connect((self.blocks_multiply_const_vxx_0, 0), (self.low_pass_filter_0_0, 0))
         self.connect((self.blocks_pdu_to_tagged_stream_0, 0), (self.zeromq_pub_sink_0, 0))
         self.connect((self.blocks_throttle_0, 0), (self.blocks_add_const_vxx_0, 0))
         self.connect((self.blocks_wavfile_source_0, 0), (self.blocks_throttle_0, 0))
         self.connect((self.digital_binary_slicer_fb_0, 0), (self.satellites_nrzi_decode_0, 0))
-        self.connect((self.digital_clock_recovery_mm_xx_0, 0), (self.digital_binary_slicer_fb_0, 0))
+        self.connect((self.digital_clock_recovery_mm_xx_0_0, 0), (self.digital_binary_slicer_fb_0, 0))
         self.connect((self.digital_descrambler_bb_0, 0), (self.satellites_hdlc_deframer_0, 0))
-        self.connect((self.low_pass_filter_0, 0), (self.digital_clock_recovery_mm_xx_0, 0))
+        self.connect((self.low_pass_filter_0_0, 0), (self.digital_clock_recovery_mm_xx_0_0, 0))
         self.connect((self.satellites_nrzi_decode_0, 0), (self.digital_descrambler_bb_0, 0))
 
     def get_symb_rate(self):
@@ -95,7 +96,6 @@ class ax25_decode(gr.top_block):
     def set_samp_rate(self, samp_rate):
         self.samp_rate = samp_rate
         self.set_samp_per_sym(int(self.samp_rate/self.symb_rate))
-        self.low_pass_filter_0.set_taps(firdes.low_pass(1, self.samp_rate, self.data_rate, self.data_rate/2, firdes.WIN_BLACKMAN, 6.76))
         self.blocks_throttle_0.set_sample_rate(self.samp_rate)
 
     def get_samp_per_sym(self):
@@ -103,7 +103,6 @@ class ax25_decode(gr.top_block):
 
     def set_samp_per_sym(self, samp_per_sym):
         self.samp_per_sym = samp_per_sym
-        self.digital_clock_recovery_mm_xx_0.set_omega(self.samp_per_sym*(1+0.0))
 
     def get_log(self):
         return self.log
@@ -122,6 +121,14 @@ class ax25_decode(gr.top_block):
 
     def set_hhmmss(self, hhmmss):
         self.hhmmss = hhmmss
+
+    def get_gain_mu(self):
+        return self.gain_mu
+
+    def set_gain_mu(self, gain_mu):
+        self.gain_mu = gain_mu
+        self.digital_clock_recovery_mm_xx_0_0.set_gain_omega(0.25*self.gain_mu*self.gain_mu)
+        self.digital_clock_recovery_mm_xx_0_0.set_gain_mu(self.gain_mu)
 
     def get_filename_raw_beacon(self):
         return self.filename_raw_beacon
@@ -158,7 +165,6 @@ class ax25_decode(gr.top_block):
 
     def set_data_rate(self, data_rate):
         self.data_rate = data_rate
-        self.low_pass_filter_0.set_taps(firdes.low_pass(1, self.samp_rate, self.data_rate, self.data_rate/2, firdes.WIN_BLACKMAN, 6.76))
 
     def get_count(self):
         return self.count
