@@ -103,6 +103,8 @@ Frames can also be decoded once the satellite has passed, assuming you've saved 
 
 We have provided a realistic recording of a satellite beacon in `recordings/example_beacon_quetzal1.wav`. If you decode this, you should obtain files equal to those shown in `examples/example_beacon_parsed.txt` and `examples/example_beacon_raw.dat`.
 
+We've also just added a recording of an actual satellite pass over Guatemala, obtained on April 28 at 18:26 UTC. It's located in `recordings/first_quetzal1_pass.wav`. 
+
 # Python Scripts for Data Visualization
 
 Credit: Aldo Aguilar (aldostef@gmail.com)
