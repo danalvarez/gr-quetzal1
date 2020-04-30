@@ -1,0 +1,9 @@
+                                                                                                                             29 Apr 2020 00:39:10
+Satellite Name: Quetzal-1
+
+
+       Time (UTCG)          Semi-major Axis (km)    Eccentricity    Inclination (deg)    RAAN (deg)    Arg of Perigee (deg)    Mean Anomaly (deg)
+------------------------    --------------------    ------------    -----------------    ----------    --------------------    ------------------
+28 Apr 2020 15:20:18.344                6797.130       0.0009683              51.6470      233.6756                 93.2585               47.6202
+
+(*1) True of Date Coordinate System, Osculating Orbit
