@@ -1536,10 +1536,7 @@ def parse_telemetry(data):
 	else:
 		filedata += "Average Power (mW):          "+ str(4.1544*data[23]-8500) + "\n"
 
-	if data[24] == 253:
-		filedata += "State of Health (%):         "+ str(data[24]) + "\n"
-	else:	
-		filedata += "State of Health (%):         "+ str(data[24]) + "\n"
+	filedata += "State of Health (%):         "+ str(data[24]) + "\n"
 
 	filedata += "---------INA260 1----------\n"
 	if(data[25] == 253 or data[25] == 255):
