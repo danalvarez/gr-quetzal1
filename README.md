@@ -4,9 +4,9 @@
 
 This repository contains the UHF specifications of Quetzal-1, the GNURadio decoder for the satellite and a Python application for data visualization. We also show a method of installing GNURadio 3.7 on Ubuntu 16.04 LTS, which is the software on which this code was tested.
 
-1. Help us track Quetzal-1!
-	* TLE
-	* UHF Specifications
+1. [Help us track Quetzal-1!](#user-content-help-us-track-quetzal-1)
+	* [TLE](#user-content-tle)
+	* [UHF Specifications](#user-content-uhf-specifications)
 2. [Downlink Decoder and Parser](#user-content-downlink-decoder-and-parser)
 	* [Live Frame Decoding](#user-content-live-frame-decoding)
 		* [Doppler Correction](#user-content-doppler-correction)
