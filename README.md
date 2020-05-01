@@ -4,7 +4,9 @@
 
 This repository contains the UHF specifications of Quetzal-1, the GNURadio decoder for the satellite and a Python application for data visualization. We also show a method of installing GNURadio 3.7 on Ubuntu 16.04 LTS, which is the software on which this code was tested.
 
-1. [UHF Specifications](#user-content-uhf-specifications)
+1. Help us track Quetzal-1!
+	* TLE
+	* UHF Specifications
 2. [Downlink Decoder and Parser](#user-content-downlink-decoder-and-parser)
 	* [Live Frame Decoding](#user-content-live-frame-decoding)
 		* [Doppler Correction](#user-content-doppler-correction)
@@ -22,17 +24,21 @@ This repository contains the UHF specifications of Quetzal-1, the GNURadio decod
 	* [Open the GNURadio GUI](#user-content-open-the-gnuradio-gui)
 	* [Troubleshooting](#user-content-troubleshooting)
 
-# UHF Specifications
+# **Help us track Quetzal-1!**
 
-## **Help us track Quetzal-1!**
+## TLE
 
-Quetzal-1 is scheduled to be deployed from the Kibo module of the International Space Station on April 28, 2020 at 09:20 hours (GMT-6). About 30 minutes after ejection, it should deploy its antennas and begin beacon transmission. For downlink, Quetzal-1 uses a GOMSpace AX100 transceiver, which will transmit GMSK-modulated data at 4800 bps at 437.200 MHz ([as coordinated by IARU](http://www.amsatuk.me.uk/iaru/finished_detail.php?serialnum=653)).
+It seems Quetzal-1 might be object #45598 in Space-Track.org. Check the TLE out [here](https://www.space-track.org/basicspacedata/query/class/tle_latest/ORDINAL/1/NORAD_CAT_ID/45598/orderby/TLE_LINE1).
 
-Beacons will be encapsulated in AX.25 + HDLC frames, with G3RUH scrambling and NRZI encoding. The following image shows the overall beacon format:
+## UHF Specifications
+
+Quetzal-1 was deployed from the Kibo module onboard the International Space Station on April 28, 2020 at 15:20 UTC. About 30 minutes after ejection, it began antenna deployment and beacon transmission. For downlink, Quetzal-1 uses a GOMSpace AX100 transceiver, which  transmits GMSK-modulated data at 4800 bps at 437.200 MHz ([as coordinated by IARU](http://www.amsatuk.me.uk/iaru/finished_detail.php?serialnum=653)).
+
+Beacons are encapsulated in AX.25 + HDLC frames, with G3RUH scrambling and NRZI encoding. The following image shows the overall beacon format:
 
 ![Beacon Structure](misc/beacon_structure.png)
 
-The spacecraft’s beacon will be sent with a 10 second period. The spreadsheet in `docs/Beacon_Package_Data.xlsx` details both the AX.25 + HDLC structure and the beacon data format.
+The spacecraft’s beacon is sent with a 10 second period. The spreadsheet in `docs/Beacon_Package_Data.xlsx` details both the AX.25 + HDLC structure and the beacon data format.
 
 ---
 :warning: **NOTE**

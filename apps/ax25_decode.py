@@ -58,11 +58,11 @@ class ax25_decode(gr.top_block):
         self.digital_descrambler_bb_0 = digital.descrambler_bb(0x21, 0, 16)
         self.digital_clock_recovery_mm_xx_0_0 = digital.clock_recovery_mm_ff(10, 0.25*gain_mu*gain_mu, 0.5, gain_mu, 0.005)
         self.digital_binary_slicer_fb_0 = digital.binary_slicer_fb()
+        self.dc_blocker_xx_0 = filter.dc_blocker_ff(1024, True)
         self.blocks_wavfile_source_0 = blocks.wavfile_source('/home/dan/Documents/repos/gr-quetzal1/recordings/example_beacon_quetzal1.wav', False)
         self.blocks_throttle_0 = blocks.throttle(gr.sizeof_float*1, samp_rate,True)
         self.blocks_pdu_to_tagged_stream_0 = blocks.pdu_to_tagged_stream(blocks.byte_t, 'packet_len')
         self.blocks_multiply_const_vxx_0 = blocks.multiply_const_vff((5, ))
-        self.blocks_add_const_vxx_0 = blocks.add_const_vff((0, ))
 
 
 
@@ -72,11 +72,11 @@ class ax25_decode(gr.top_block):
         self.msg_connect((self.satellites_hdlc_deframer_0, 'out'), (self.satellites_strip_ax25_header_0, 'in'))
         self.msg_connect((self.satellites_strip_ax25_header_0, 'out'), (self.blocks_pdu_to_tagged_stream_0, 'pdus'))
         self.msg_connect((self.satellites_strip_ax25_header_0, 'out'), (self.quetzal1_parse, 'in'))
-        self.connect((self.blocks_add_const_vxx_0, 0), (self.blocks_multiply_const_vxx_0, 0))
         self.connect((self.blocks_multiply_const_vxx_0, 0), (self.low_pass_filter_0_0, 0))
         self.connect((self.blocks_pdu_to_tagged_stream_0, 0), (self.zeromq_pub_sink_0, 0))
-        self.connect((self.blocks_throttle_0, 0), (self.blocks_add_const_vxx_0, 0))
+        self.connect((self.blocks_throttle_0, 0), (self.dc_blocker_xx_0, 0))
         self.connect((self.blocks_wavfile_source_0, 0), (self.blocks_throttle_0, 0))
+        self.connect((self.dc_blocker_xx_0, 0), (self.blocks_multiply_const_vxx_0, 0))
         self.connect((self.digital_binary_slicer_fb_0, 0), (self.satellites_nrzi_decode_0, 0))
         self.connect((self.digital_clock_recovery_mm_xx_0_0, 0), (self.digital_binary_slicer_fb_0, 0))
         self.connect((self.digital_descrambler_bb_0, 0), (self.satellites_hdlc_deframer_0, 0))
