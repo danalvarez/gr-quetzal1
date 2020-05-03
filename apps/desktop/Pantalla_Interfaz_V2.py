@@ -119,7 +119,7 @@ class Pantalla_Interfaz(QtWidgets.QMainWindow, Ui_MainWindow):
 		step_forward() en Modo Manual
 	"""
 
-	def __init__(self, *args, parent=None):
+	def __init__(self, args, parent=None):
 		"""
 		Constructor
 
@@ -186,7 +186,7 @@ class Pantalla_Interfaz(QtWidgets.QMainWindow, Ui_MainWindow):
 		# Configuracion de timer que actualiza data
 		self.timer = QtCore.QTimer()
 		self.timer.timeout.connect(self.updatedata)
-		self.timer.start(1000)
+		self.timer.start(args.interval)
 
 		# Comenzar con todos los botones desactivados (excepto Select
 		# HEX y Conectar a puerto)
