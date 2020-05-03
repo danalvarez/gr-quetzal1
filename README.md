@@ -14,6 +14,7 @@ This repository contains the UHF specifications of Quetzal-1, the GNURadio decod
 		* [Example Beacon Recording](#user-content-example-beacon-recording)
 3. [Python Scripts for Data Visualization ](#user-content-python-scripts-for-data-visualization)
 	* [Post-mortem Beacon Parsing](#user-content-post-mortem-beacon-parsing)
+		* Downloading Data from SatNOGS
 	* [Live Beacon Parsing](#user-content-live-beacon-parsing)
 4. [GNURadio 3.7 Installation](#user-content-gnuradio-37-installation)
 	* [Install GNURadio 3.7 Dependencies](#user-content-install-gnuradio-37-dependencies)
@@ -137,6 +138,10 @@ Once this is done, you can run the script by going into the `apps/desktop/` dire
 Upon opening the GUI, you can select a beacon to visualize by clicking on *Select Hex* and navigating to one of the decoded `.dat` files (for example, choose the file in `examples/example_beacon_raw.dat`). Once selected, the GUI will automatically start displaying beacons one second at a time (although you can change this by executing the program with the `--interval [value in ms]` flag. More information available on `python3 main.py --help`). You can also scan through the beacons by clicking on the fast-foward and rewind buttons.
 
 ![Python GUI](misc/Python_GUI.png)
+
+### Downloading Data from SatNOGS
+
+[Alicja Musial](https://github.com/alicjamusial) has developed a Python tool to automatically download decoded data from SatNOGS. Visit [her repository](https://github.com/alicjamusial/quetzal1-satnogs) for instructions on how to do this. Once the data has been downloaded, it can automatically be put into the Python GUI for visualization.
 
 ## Live Beacon Parsing
 
