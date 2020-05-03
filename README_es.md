@@ -4,7 +4,7 @@
 
 ## TLE
 
-Parece ser que Quetzal-1 es el objeto #45598 en Space-Track.org. El TLE está disponible [acá](https://www.space-track.org/basicspacedata/query/class/tle_latest/ORDINAL/1/NORAD_CAT_ID/45598/orderby/TLE_LINE1).
+Gracias a SatNOGS, Space-Track y Celestrak, además de un grupo de radioaficionados alrededor del mundo, Quetzal-1 ha sido identificado con el NORAD ID #45598. El post de SatNOGS explicando esto está [acá](https://community.libre.space/t/iss-cubesat-deployment-2020-04-28-quetzal-1/6046/6?u=danalvarez). El TLE puede encontrarse [acá](https://celestrak.com/norad/elements/tle-new.txt).
 
 ## Especificaciones UHF
 
