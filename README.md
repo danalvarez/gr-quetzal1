@@ -132,11 +132,9 @@ Once this is done, you can run the script by going into the `apps/desktop/` dire
 
 	python3 -m main.py
 
-To change interval for loading multiple beacons use `--interval [value in ms]` flag. More information available on `python3 main.py --help`.
-
 ## Post-mortem Beacon Parsing
 
-Upon opening the GUI, you can select a beacon to visualize by clicking on *Select Hex* and navigating to one of the decoded `.dat` files (for example, choose the file in `examples/example_beacon_raw.dat`). Once selected, the GUI will automatically start displaying beacons one second at a time. You can also scan through the beacons by clicking on the fast-foward and rewind buttons.
+Upon opening the GUI, you can select a beacon to visualize by clicking on *Select Hex* and navigating to one of the decoded `.dat` files (for example, choose the file in `examples/example_beacon_raw.dat`). Once selected, the GUI will automatically start displaying beacons one second at a time (although you can change this by executing the program with the `--interval [value in ms]` flag. More information available on `python3 main.py --help`). You can also scan through the beacons by clicking on the fast-foward and rewind buttons.
 
 ![Python GUI](misc/Python_GUI.png)
 
