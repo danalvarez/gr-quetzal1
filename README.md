@@ -14,7 +14,7 @@ This repository contains the UHF specifications of Quetzal-1, the GNURadio decod
 		* [Example Beacon Recording](#user-content-example-beacon-recording)
 3. [Python Scripts for Data Visualization ](#user-content-python-scripts-for-data-visualization)
 	* [Post-mortem Beacon Parsing](#user-content-post-mortem-beacon-parsing)
-		* Downloading Data from SatNOGS
+		* [Downloading Data from SatNOGS](#user-content-downloading-data-from-satnogs)
 	* [Live Beacon Parsing](#user-content-live-beacon-parsing)
 4. [GNURadio 3.7 Installation](#user-content-gnuradio-37-installation)
 	* [Install GNURadio 3.7 Dependencies](#user-content-install-gnuradio-37-dependencies)
