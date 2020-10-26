@@ -29,7 +29,7 @@ This repository contains the UHF specifications of Quetzal-1, the GNURadio decod
 
 ## TLE
 
-Thanks to the people at SatNOGS, radio amateurs, Space-Track and Celestrak, Quetzal-1 has beed identified as NORAD ID #45598. Check out the SatNOGS post [here](https://community.libre.space/t/iss-cubesat-deployment-2020-04-28-quetzal-1/6046/6?u=danalvarez). Also, the TLE is currently available in Celestrak [here](https://celestrak.com/norad/elements/tle-new.txt).
+Thanks to the people at SatNOGS, radio amateurs, Space-Track and Celestrak, Quetzal-1 has beed identified as NORAD ID #45598. Check out the SatNOGS post [here](https://community.libre.space/t/iss-cubesat-deployment-2020-04-28-quetzal-1/6046/6?u=danalvarez). Also, the TLE is currently available in Celestrak [here](https://celestrak.com/NORAD/elements/stations.txt).
 
 ## UHF Specifications
 
