@@ -24,23 +24,24 @@ We are indebted to you, the community.
 
  - *With :heart:, the Quetzal-1 CubeSat Team.*
 
-# **Directory Description**
+# **Repository Contents**
 
 This repository contains the UHF specifications of Quetzal-1, the GNURadio decoder for the satellite and a Python application for data visualization. We also show a method of installing GNURadio 3.7 on Ubuntu 16.04 LTS, which is the software on which this code was tested.
 
-1. [Help us track Quetzal-1!](#user-content-help-us-track-quetzal-1)
+1. [Directory Description](#user-content-directory-description)
+2. [Help us track Quetzal-1!](#user-content-help-us-track-quetzal-1)
 	* [TLE](#user-content-tle)
 	* [UHF Specifications](#user-content-uhf-specifications)
-2. [Downlink Decoder and Parser](#user-content-downlink-decoder-and-parser)
+3. [Downlink Decoder and Parser](#user-content-downlink-decoder-and-parser)
 	* [Live Frame Decoding](#user-content-live-frame-decoding)
 		* [Doppler Correction](#user-content-doppler-correction)
 	* [Post-mortem Frame Decoding](#user-content-post-mortem-frame-decoding)
 		* [Example Beacon Recording](#user-content-example-beacon-recording)
-3. [Python Scripts for Data Visualization ](#user-content-python-scripts-for-data-visualization)
+4. [Python Scripts for Data Visualization ](#user-content-python-scripts-for-data-visualization)
 	* [Post-mortem Beacon Parsing](#user-content-post-mortem-beacon-parsing)
 		* [Downloading Data from SatNOGS](#user-content-downloading-data-from-satnogs)
 	* [Live Beacon Parsing](#user-content-live-beacon-parsing)
-4. [GNURadio 3.7 Installation](#user-content-gnuradio-37-installation)
+5. [GNURadio 3.7 Installation](#user-content-gnuradio-37-installation)
 	* [Install GNURadio 3.7 Dependencies](#user-content-install-gnuradio-37-dependencies)
 	* [Install Python 2.7 modules for gr-satellites](#user-content-install-python-27-modules-for-gr-satellites)
 	* [PyBOMBS](#user-content-pybombs)
@@ -48,6 +49,20 @@ This repository contains the UHF specifications of Quetzal-1, the GNURadio decod
 	* [Installing gr-satellites](#user-content-installing-gr-satellites)
 	* [Open the GNURadio GUI](#user-content-open-the-gnuradio-gui)
 	* [Troubleshooting](#user-content-troubleshooting)
+
+# **Directory Description**
+
+The following files are included in this repository:
+
+1. [apps](./apps/): Contains the following software related to the Ground Control Station (GCS):
+	1. [apps/desktop](./apps/desktop/): Contains the Python application for data visualization.
+	2. [apps/receiver](./apps/receiver/): Contains the GNURadio 3.7 code for the receiver (decoder for both telemetry beacons and images).
+	3. [apps/transmitter](./apps/transmitter/): Contains the GNURadio 3.7 code for the transmitter (used to command the satellite while in-orbit).
+2. [docs](./docs/): Contains a spreadsheet detailing the structure for telemetry and image beacons.
+3. [examples](./examples/): Contains examples produced by the receiver scripts.
+4. [media](./media/): Contains miscellaneous images that are used or referenced throughout this repository.
+5. [recordings](./recordings/): Contains `.wav` recordings of telemetry and image beacons that may serve as an example to test the receiver scripts.
+6. [TLE](./TLE/): Contains the original TLE for the satellite, when deployed from the ISS.
 
 # **Help us track Quetzal-1!**
 

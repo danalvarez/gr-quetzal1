@@ -556,7 +556,7 @@ into the terminal</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(608, 276)</value>
+      <value>(616, 276)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -599,7 +599,7 @@ into the terminal</value>
     </param>
     <param>
       <key>_enabled</key>
-      <value>True</value>
+      <value>0</value>
     </param>
     <param>
       <key>_coordinate</key>
@@ -646,7 +646,7 @@ into the terminal</value>
     </param>
     <param>
       <key>_enabled</key>
-      <value>0</value>
+      <value>1</value>
     </param>
     <param>
       <key>_coordinate</key>
@@ -693,7 +693,7 @@ into the terminal</value>
     </param>
     <param>
       <key>_enabled</key>
-      <value>1</value>
+      <value>0</value>
     </param>
     <param>
       <key>_coordinate</key>
@@ -748,7 +748,7 @@ into the terminal</value>
     </param>
     <param>
       <key>_enabled</key>
-      <value>0</value>
+      <value>1</value>
     </param>
     <param>
       <key>_coordinate</key>
@@ -796,6 +796,53 @@ into the terminal</value>
     </param>
   </block>
   <block>
+    <key>blocks_wavfile_sink</key>
+    <param>
+      <key>bits_per_sample</key>
+      <value>8</value>
+    </param>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>file</key>
+      <value>/home/dan/filtered.wav</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(1024, 260)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>blocks_wavfile_sink_0</value>
+    </param>
+    <param>
+      <key>nchan</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>samp_rate</key>
+      <value>samp_rate</value>
+    </param>
+  </block>
+  <block>
     <key>blocks_wavfile_source</key>
     <param>
       <key>alias</key>
@@ -811,11 +858,11 @@ into the terminal</value>
     </param>
     <param>
       <key>_enabled</key>
-      <value>1</value>
+      <value>0</value>
     </param>
     <param>
       <key>file</key>
-      <value>/home/dan/Documents/repos/gr-quetzal1/recordings/example_beacon_quetzal1.wav</value>
+      <value>/home/cubesat/03-09-20-2248-UVG.wav</value>
     </param>
     <param>
       <key>_coordinate</key>
@@ -844,6 +891,53 @@ into the terminal</value>
     <param>
       <key>repeat</key>
       <value>False</value>
+    </param>
+  </block>
+  <block>
+    <key>parameter</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(1064, 16)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>callsign</value>
+    </param>
+    <param>
+      <key>label</key>
+      <value>yourcallsign</value>
+    </param>
+    <param>
+      <key>short_id</key>
+      <value></value>
+    </param>
+    <param>
+      <key>hide</key>
+      <value>none</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>string</value>
+    </param>
+    <param>
+      <key>value</key>
+      <value>UVGGCS</value>
     </param>
   </block>
   <block>
@@ -941,7 +1035,7 @@ packets.</value>
     </param>
     <param>
       <key>_enabled</key>
-      <value>True</value>
+      <value>1</value>
     </param>
     <param>
       <key>_coordinate</key>
@@ -1134,6 +1228,100 @@ according to Estevez, D.</value>
     <param>
       <key>seed</key>
       <value>0</value>
+    </param>
+  </block>
+  <block>
+    <key>parameter</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(1184, 16)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>latitude</value>
+    </param>
+    <param>
+      <key>label</key>
+      <value>latitude (format 00.000 or -00.000)</value>
+    </param>
+    <param>
+      <key>short_id</key>
+      <value></value>
+    </param>
+    <param>
+      <key>hide</key>
+      <value>none</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>eng_float</value>
+    </param>
+    <param>
+      <key>value</key>
+      <value>14.605467</value>
+    </param>
+  </block>
+  <block>
+    <key>parameter</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(1032, 104)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>longitude</value>
+    </param>
+    <param>
+      <key>label</key>
+      <value>longitude (format 00.000 or -00.000)</value>
+    </param>
+    <param>
+      <key>short_id</key>
+      <value></value>
+    </param>
+    <param>
+      <key>hide</key>
+      <value>none</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>eng_float</value>
+    </param>
+    <param>
+      <key>value</key>
+      <value>-90.488364</value>
     </param>
   </block>
   <block>
@@ -1838,7 +2026,7 @@ class quetzal1_parse(gr.basic_block):
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1112, 820)</value>
+      <value>(1112, 808)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1847,6 +2035,53 @@ class quetzal1_parse(gr.basic_block):
     <param>
       <key>id</key>
       <value>quetzal1_parse</value>
+    </param>
+  </block>
+  <block>
+    <key>parameter</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(1192, 104)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>recstart</value>
+    </param>
+    <param>
+      <key>label</key>
+      <value>start of recording, if processing a recording (format YYYY-MM-DD HH:MM:SS)</value>
+    </param>
+    <param>
+      <key>short_id</key>
+      <value></value>
+    </param>
+    <param>
+      <key>hide</key>
+      <value>none</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>string</value>
+    </param>
+    <param>
+      <key>value</key>
+      <value></value>
     </param>
   </block>
   <block>
@@ -1967,6 +2202,53 @@ class quetzal1_parse(gr.basic_block):
     </param>
   </block>
   <block>
+    <key>satellites_print_timestamp</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>fmt</key>
+      <value>%Y-%m-%d %H:%M:%S</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(700, 1104)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>270</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>satellites_print_timestamp_0</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>count</key>
+      <value>True</value>
+    </param>
+  </block>
+  <block>
     <key>satellites_strip_ax25_header</key>
     <param>
       <key>alias</key>
@@ -1986,7 +2268,7 @@ class quetzal1_parse(gr.basic_block):
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(776, 960)</value>
+      <value>(776, 944)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -2003,6 +2285,278 @@ class quetzal1_parse(gr.basic_block):
     <param>
       <key>minoutbuf</key>
       <value>0</value>
+    </param>
+  </block>
+  <block>
+    <key>satellites_submit</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(792, 1304)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>satellites_submit_0</value>
+    </param>
+    <param>
+      <key>latitude</key>
+      <value>latitude</value>
+    </param>
+    <param>
+      <key>longitude</key>
+      <value>longitude</value>
+    </param>
+    <param>
+      <key>noradID</key>
+      <value>45598</value>
+    </param>
+    <param>
+      <key>source</key>
+      <value>callsign</value>
+    </param>
+    <param>
+      <key>tstamp</key>
+      <value>recstart</value>
+    </param>
+    <param>
+      <key>url</key>
+      <value>https://db.satnogs.org/api/telemetry/</value>
+    </param>
+  </block>
+  <block>
+    <key>satellites_swap_header</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(912, 1080)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>satellites_swap_header_0</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+  </block>
+  <block>
+    <key>epy_block</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_io_cache</key>
+      <value>('Write Photo', 'msg_block', [('filename_image', "''"), ('filename_image_metadata', "''"), ('rtc', '[]'), ('homedir', "''"), ('log', '-1'), ('do_once', '0')], [('msg_in', 'message', 1)], [], 'This block concatenates image packets into a single photo\n\n\tIf it is an image, then it writes to imageXXX.dat and writes the metadata of the image into image_metadataXXX.txt. \n\n\tXXX represents the date and time at the moment of creating the file.\n\n\tEverything is stored in the home directory, in a folder named "Received Data"\n\n\tInputs:\n\t- filename_image: the name of the file that saves the received image\n\t- filaname_image_metadata: the name of the file that saves the metadata of the received image\n\t- rtc: the datetime of the current photo being sent (part of the RTC of the satellite, in the format hh-mm-ss-dd-mm-yy)\n\t- homedir: the home directory of the current PC\n\t- log: each photo packet contains a packet number, this variable saves the packet number of the packet that was just received\n\t- do_once: used to perform an action only once\n\t', ['do_once', 'filename_image', 'filename_image_metadata', 'homedir', 'log', 'rtc'])</value>
+    </param>
+    <param>
+      <key>_source_code</key>
+      <value>#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# 
+# Adapted from: Copyright 2018 Daniel Estevez &lt;daniel@destevez.net&gt;
+# 
+# Modification 2019, Dan Álvarez
+# Image parser for QUETZAL-1 Beacon
+# 
+# This is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 3, or (at your option)
+# any later version.
+# 
+# This software is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this software; see the file COPYING.  If not, write to
+# the Free Software Foundation, Inc., 51 Franklin Street,
+# Boston, MA 02110-1301, USA.
+# 
+
+import numpy as np
+from gnuradio import gr
+import pmt
+import os
+
+class msg_block(gr.basic_block):  # other base classes are basic_block, decim_block, interp_block
+	"""This block concatenates image packets into a single photo
+
+	If it is an image, then it writes to imageXXX.dat and writes the metadata of the image into image_metadataXXX.txt. 
+
+	XXX represents the date and time at the moment of creating the file.
+
+	Everything is stored in the home directory, in a folder named "Received Data"
+
+	Inputs:
+	- filename_image: the name of the file that saves the received image
+	- filaname_image_metadata: the name of the file that saves the metadata of the received image
+	- rtc: the datetime of the current photo being sent (part of the RTC of the satellite, in the format hh-mm-ss-dd-mm-yy)
+	- homedir: the home directory of the current PC
+	- log: each photo packet contains a packet number, this variable saves the packet number of the packet that was just received
+	- do_once: used to perform an action only once
+	"""
+
+	def __init__(self, filename_image = "", filename_image_metadata = "", rtc = [], homedir = "", log = -1, do_once = 0):  # only default arguments here
+		"""arguments to this function show up as parameters in GRC"""
+		gr.basic_block.__init__(
+		self,
+		name='Write Photo',   # will show up in GRC
+		in_sig=None,
+		out_sig=None
+		)
+
+		# generate filenames and necessary directories
+		self.homedir = os.environ['HOME']
+		if not os.path.exists(self.homedir + "/Received Data"):
+			os.mkdir(self.homedir + "/Received Data")
+		self.filename_image = filename_image										# saves the image data
+		self.filename_image_metadata = filename_image_metadata						# saves the metadata of each image
+		
+		# declare other variables
+		self.log = log 																# saves the packet number of the last packet
+		self.do_once = do_once														# aids in doing a task only once
+		self.rtc = rtc																# saves the rtc of the satellite
+
+		self.message_port_register_in(pmt.intern('msg_in'))
+		self.set_msg_handler(pmt.intern('msg_in'), self.handle_msg)
+
+	def handle_msg(self, msg):
+		_in = pmt.to_python(msg) #the PMT message that comes in is a tuple, the actual packet is in _in[1]
+
+		data = _in[1]
+
+		if len(data) == 236:
+			# write to imageXXX.dat if image
+			# bytes 0 through 4 are CSP header, rest is image data
+
+			# verify current rtc to past rtc (if they are different, it's a new photo, so create new file names)
+			currRTC = [str(val) for val in data[-6:]] 
+			if currRTC != self.rtc:
+				self.filename_image = self.homedir + "/Received Data/image_" + "-".join(currRTC) + ".dat"
+				self.filename_image_metadata = self.homedir + "/Received Data/image_metadata_" + "-".join(currRTC) + ".txt"
+				self.do_once = 0
+
+			# open files
+			f = open(self.filename_image, "a")
+			f2 = open(self.filename_image_metadata, "a")
+
+			# add blocks of zeros as placeholders for missing packets
+			if data[-7] &gt; self.log+1:
+				diff = data[-7] - self.log - 1				# calculate the amount of packets that were lost
+				f.write(np.zeros(224*diff,dtype=np.uint8))	# image packet is 224 bytes
+
+			# compares the packet number of the current and last packets.
+			# only write the packet if it is not duplicated (because images are sent with redundancy)
+			# also writes the metadata of the image into a readable text file
+			if self.log != data[-7]:	
+				f.write(data[4:-8])	# image data starts right after CSP header, last 8 bytes are image metadata
+
+				if self.do_once == 0:	# only do this once for every image
+					f2.write("Image Number: " + str(data[-8]) + "\n")
+					f2.write("RTC (hh-mm-ss-dd-mm-yy): " + "-".join(currRTC) + "\n\n")
+					f2.write("Received packets:\n\n")
+
+					self.do_once += 1
+				
+				f2.write(str(data[-7]) + "\n")	# write the packet number into the metadata text file
+				self.log = data[-7]				# save the current packet number
+				self.rtc = currRTC				# save current rtc value
+
+			f.close()
+			f2.close()
+
+		return
+
+	def work(self, input_items, output_items):
+		pass</value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>do_once</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>filename_image_metadata</key>
+      <value>''</value>
+    </param>
+    <param>
+      <key>filename_image</key>
+      <value>''</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(1112, 652)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>homedir</key>
+      <value>''</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>write_photo</value>
+    </param>
+    <param>
+      <key>log</key>
+      <value>-1</value>
+    </param>
+    <param>
+      <key>rtc</key>
+      <value>[]</value>
     </param>
   </block>
   <block>
@@ -2028,7 +2582,7 @@ parsed and displayed.</value>
     </param>
     <param>
       <key>_enabled</key>
-      <value>True</value>
+      <value>0</value>
     </param>
     <param>
       <key>_coordinate</key>
@@ -2125,9 +2679,21 @@ parsed and displayed.</value>
   </connection>
   <connection>
     <source_block_id>low_pass_filter_0_0</source_block_id>
+    <sink_block_id>blocks_wavfile_sink_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>low_pass_filter_0_0</source_block_id>
     <sink_block_id>digital_clock_recovery_mm_xx_0_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>satellites_hdlc_deframer_0</source_block_id>
+    <sink_block_id>satellites_print_timestamp_0</sink_block_id>
+    <source_key>out</source_key>
+    <sink_key>in</sink_key>
   </connection>
   <connection>
     <source_block_id>satellites_hdlc_deframer_0</source_block_id>
@@ -2140,6 +2706,12 @@ parsed and displayed.</value>
     <sink_block_id>digital_descrambler_bb_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>satellites_print_timestamp_0</source_block_id>
+    <sink_block_id>satellites_submit_0</sink_block_id>
+    <source_key>out</source_key>
+    <sink_key>in</sink_key>
   </connection>
   <connection>
     <source_block_id>satellites_strip_ax25_header_0</source_block_id>
@@ -2167,6 +2739,18 @@ parsed and displayed.</value>
   </connection>
   <connection>
     <source_block_id>satellites_strip_ax25_header_0</source_block_id>
+    <sink_block_id>satellites_swap_header_0</sink_block_id>
+    <source_key>out</source_key>
+    <sink_key>in</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>satellites_strip_ax25_header_0</source_block_id>
+    <sink_block_id>write_photo</sink_block_id>
+    <source_key>out</source_key>
+    <sink_key>msg_in</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>satellites_swap_header_0</source_block_id>
     <sink_block_id>satellites_print_header_0</sink_block_id>
     <source_key>out</source_key>
     <sink_key>in</sink_key>

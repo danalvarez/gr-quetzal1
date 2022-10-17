@@ -13,18 +13,26 @@ from gnuradio import digital
 from gnuradio import eng_notation
 from gnuradio import filter
 from gnuradio import gr
-from gnuradio import zeromq
 from gnuradio.eng_option import eng_option
 from gnuradio.filter import firdes
 from optparse import OptionParser
 import quetzal1_parse
 import satellites
+import write_photo
 
 
 class ax25_decode(gr.top_block):
 
-    def __init__(self):
+    def __init__(self, callsign='UVGGCS', latitude=14.605467, longitude=-90.488364, recstart=''):
         gr.top_block.__init__(self, "Quetzal-1 Receiver")
+
+        ##################################################
+        # Parameters
+        ##################################################
+        self.callsign = callsign
+        self.latitude = latitude
+        self.longitude = longitude
+        self.recstart = recstart
 
         ##################################################
         # Variables
@@ -48,7 +56,7 @@ class ax25_decode(gr.top_block):
         ##################################################
         # Blocks
         ##################################################
-        self.zeromq_pub_sink_0 = zeromq.pub_sink(gr.sizeof_char, 1, 'tcp://127.0.0.1:1502', 100, False, -1)
+        self.write_photo = write_photo.msg_block(filename_image='', filename_image_metadata='', rtc=[], homedir='', log=-1, do_once=0)
         self.satellites_strip_ax25_header_0 = satellites.strip_ax25_header()
         self.satellites_nrzi_decode_0 = satellites.nrzi_decode()
         self.satellites_hdlc_deframer_0 = satellites.hdlc_deframer(check_fcs=True, max_length=10000)
@@ -59,9 +67,8 @@ class ax25_decode(gr.top_block):
         self.digital_clock_recovery_mm_xx_0_0 = digital.clock_recovery_mm_ff(10, 0.25*gain_mu*gain_mu, 0.5, gain_mu, 0.005)
         self.digital_binary_slicer_fb_0 = digital.binary_slicer_fb()
         self.dc_blocker_xx_0 = filter.dc_blocker_ff(1024, True)
-        self.blocks_wavfile_source_0 = blocks.wavfile_source('/home/dan/Documents/repos/gr-quetzal1/recordings/example_beacon_quetzal1.wav', False)
-        self.blocks_throttle_0 = blocks.throttle(gr.sizeof_float*1, samp_rate,True)
-        self.blocks_pdu_to_tagged_stream_0 = blocks.pdu_to_tagged_stream(blocks.byte_t, 'packet_len')
+        self.blocks_udp_source_0 = blocks.udp_source(gr.sizeof_short*1, 'localhost', 7355, 1472, False)
+        self.blocks_short_to_float_0 = blocks.short_to_float(1, 32767.0)
         self.blocks_multiply_const_vxx_0 = blocks.multiply_const_vff((5, ))
 
 
@@ -70,18 +77,41 @@ class ax25_decode(gr.top_block):
         # Connections
         ##################################################
         self.msg_connect((self.satellites_hdlc_deframer_0, 'out'), (self.satellites_strip_ax25_header_0, 'in'))
-        self.msg_connect((self.satellites_strip_ax25_header_0, 'out'), (self.blocks_pdu_to_tagged_stream_0, 'pdus'))
         self.msg_connect((self.satellites_strip_ax25_header_0, 'out'), (self.quetzal1_parse, 'in'))
+        self.msg_connect((self.satellites_strip_ax25_header_0, 'out'), (self.write_photo, 'msg_in'))
         self.connect((self.blocks_multiply_const_vxx_0, 0), (self.low_pass_filter_0_0, 0))
-        self.connect((self.blocks_pdu_to_tagged_stream_0, 0), (self.zeromq_pub_sink_0, 0))
-        self.connect((self.blocks_throttle_0, 0), (self.dc_blocker_xx_0, 0))
-        self.connect((self.blocks_wavfile_source_0, 0), (self.blocks_throttle_0, 0))
+        self.connect((self.blocks_short_to_float_0, 0), (self.dc_blocker_xx_0, 0))
+        self.connect((self.blocks_udp_source_0, 0), (self.blocks_short_to_float_0, 0))
         self.connect((self.dc_blocker_xx_0, 0), (self.blocks_multiply_const_vxx_0, 0))
         self.connect((self.digital_binary_slicer_fb_0, 0), (self.satellites_nrzi_decode_0, 0))
         self.connect((self.digital_clock_recovery_mm_xx_0_0, 0), (self.digital_binary_slicer_fb_0, 0))
         self.connect((self.digital_descrambler_bb_0, 0), (self.satellites_hdlc_deframer_0, 0))
         self.connect((self.low_pass_filter_0_0, 0), (self.digital_clock_recovery_mm_xx_0_0, 0))
         self.connect((self.satellites_nrzi_decode_0, 0), (self.digital_descrambler_bb_0, 0))
+
+    def get_callsign(self):
+        return self.callsign
+
+    def set_callsign(self, callsign):
+        self.callsign = callsign
+
+    def get_latitude(self):
+        return self.latitude
+
+    def set_latitude(self, latitude):
+        self.latitude = latitude
+
+    def get_longitude(self):
+        return self.longitude
+
+    def set_longitude(self, longitude):
+        self.longitude = longitude
+
+    def get_recstart(self):
+        return self.recstart
+
+    def set_recstart(self, recstart):
+        self.recstart = recstart
 
     def get_symb_rate(self):
         return self.symb_rate
@@ -96,7 +126,6 @@ class ax25_decode(gr.top_block):
     def set_samp_rate(self, samp_rate):
         self.samp_rate = samp_rate
         self.set_samp_per_sym(int(self.samp_rate/self.symb_rate))
-        self.blocks_throttle_0.set_sample_rate(self.samp_rate)
 
     def get_samp_per_sym(self):
         return self.samp_per_sym
@@ -179,9 +208,29 @@ class ax25_decode(gr.top_block):
         self.center_freq = center_freq
 
 
-def main(top_block_cls=ax25_decode, options=None):
+def argument_parser():
+    description = 'An AX.25 + HDLC decoder for the NanoCom AX100 transceiver. Default baud rate is set to 4800. Includes parser for beacons and images.'
+    parser = OptionParser(usage="%prog: [options]", option_class=eng_option, description=description)
+    parser.add_option(
+        "", "--callsign", dest="callsign", type="string", default='UVGGCS',
+        help="Set yourcallsign [default=%default]")
+    parser.add_option(
+        "", "--latitude", dest="latitude", type="eng_float", default=eng_notation.num_to_str(14.605467),
+        help="Set latitude (format 00.000 or -00.000) [default=%default]")
+    parser.add_option(
+        "", "--longitude", dest="longitude", type="eng_float", default=eng_notation.num_to_str(-90.488364),
+        help="Set longitude (format 00.000 or -00.000) [default=%default]")
+    parser.add_option(
+        "", "--recstart", dest="recstart", type="string", default='',
+        help="Set start of recording, if processing a recording (format YYYY-MM-DD HH:MM:SS) [default=%default]")
+    return parser
 
-    tb = top_block_cls()
+
+def main(top_block_cls=ax25_decode, options=None):
+    if options is None:
+        options, _ = argument_parser().parse_args()
+
+    tb = top_block_cls(callsign=options.callsign, latitude=options.latitude, longitude=options.longitude, recstart=options.recstart)
     tb.start()
     try:
         raw_input('Press Enter to quit: ')
