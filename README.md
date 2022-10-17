@@ -147,13 +147,19 @@ Frames can also be decoded once the satellite has passed, assuming you've saved 
 
 ### Example Beacon Recording
 
-We have provided a realistic recording of a satellite beacon in `recordings/example_beacon_quetzal1.wav`. If you decode this, you should obtain files equal to those shown in `examples/example_beacon_parsed.txt` and `examples/example_beacon_raw.dat`.
+We have provided a realistic recording of a satellite beacon in [example_beacon_quetzal1.wav](./recordings/example_beacon_quetzal1.wav). If you decode this, you should obtain files equal to those shown in [example_beacon_parsed.txt](./examples/example_beacon_parsed.txt) and [example_beacon_raw.dat](./examples/example_beacon_raw.dat).
 
-We've also just added a recording of an actual satellite pass over Guatemala, obtained on April 28 at 18:26 UTC. It's located in `recordings/first_quetzal1_pass.wav`. 
+We've also added [a recording of an actual satellite pass over Guatemala](./recordings/first_quetzal1_pass.wav), obtained on April 28 at 18:26 UTC.
+
+### Example Image Recording
+
+A recording of a picture taken and transmitted by our satellite while in our lab is provided in [example_image_quetzal1.wav](./recordings/example_image_quetzal1.wav). If you decode this, you should obtain files equal to those in [example_image.dat](./examples/example_image.dat) and [example_image_metadata.txt](./examples/example_image_metadata.txt), saved into a directory called `Received Data/` within your home directory (see [write_photo.py](./apps/receiver/write_photo.py) for more information on the default directory).
+
+The `.dat` file contains the image. To view it in Windows, change the file extension to `.jpg` (the converted example image is available [here](./examples/example_image.jpg)).
 
 # Python Scripts for Data Visualization
 
-Credit: Aldo Aguilar (aldostef@gmail.com)
+Credit: [Aldo Aguilar](https://github.com/AldoAguilarN)
 
 ---
 :information_source: **NOTE**
