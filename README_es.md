@@ -1,5 +1,21 @@
 [In English](https://github.com/danalvarez/gr-quetzal1)
 
+# **Repositorios disponibles**
+
+| Repositorio               | Descripción                                                                                                             |
+|--------------------------|-------------------------------------------------------------------------------------------------------------------------|
+| [quetzal1-hardware](https://github.com/Quetzal-1-CubeSat-Team/quetzal1-hardware)        | Contiene los archivos de *hardware* para Quetzal-1 y sus subsistemas.                                                    |
+| [quetzal1-flight-software](https://github.com/Quetzal-1-CubeSat-Team/quetzal1-flight-software) | Contiene el *software* para Quetzal-1 y sus subsistemas.                                                                 |
+| gr-quetzal1              | Este repositorio. |
+
+# **Un mensaje del equipo de Quetzal-1**
+
+Gracias al soporte de la comunidad internacional de radioaficionados, más de 80,000 paquetes de telemetría se recibieron en los 211 días de operación exitosa de nuestro satélite, entre abril y noviembre del 2020. Mantendremos este repositorio como estaba durante el período que Quetzal-1 estuvo operacional, para referencia futuro de los equipos de nanosatélite (o individuos) que estén interesados.
+
+Les debemos una deuda de gratitud a todos ustedes: la comunidad.
+
+ - *Con :heart:, el equipo del satélite Quetzal-1*
+
 # **¡Ayúdanos a escuchar a Quetzal-1!**
 
 ## TLE
@@ -12,7 +28,7 @@ Quetzal-1 fue liberado desde la Estación Espacial Internacional el 28 de abril 
 
 Los paquetes de datos están codificados en el formato AX.25 + HDLC, con *scrambling* G3RUH y codificación NRZI. La siguiente imagen muestra el formato general de los paquetes:
 
-![Beacon Structure](misc/beacon_structure.png)
+![Beacon Structure](media/beacon_structure.png)
 
 Los datos se envían periódicamente cada 10 segundos. La hoja de cálculo en `docs/Beacon_Package_Data.xlsx` describe la estructura a más detalle.
 

@@ -2,6 +2,30 @@
 
 # gr-quetzal1
 
+<p align="center">
+<img width="300" src="./media/mission_patch.png">
+</p>
+
+For an overview of Quetzal-1, [read our profile!](https://github.com/Quetzal-1-CubeSat-Team)
+
+# **Available Repositories**
+
+| Repository               | Description                                                                                                             |
+|--------------------------|-------------------------------------------------------------------------------------------------------------------------|
+| [quetzal1-hardware](https://github.com/Quetzal-1-CubeSat-Team/quetzal1-hardware)        | Contains the hardware design files for Quetzal-1 and its subsystems.                                                    |
+| [quetzal1-flight-software](https://github.com/Quetzal-1-CubeSat-Team/quetzal1-flight-software) | Contains the software for Quetzal-1 and its subsystems.                                                                 |
+| gr-quetzal1              | This repository. |
+
+# **A note from the Quetzal-1 team**
+
+Thanks to the support of the international radio amateur community, more than 80,000 telemetry packets were obtained for Quetzal-1, throughout its 211 days of operation from April to Novemeber 2020. We will keep this repository as it was when the satellite was operational, for future reference for any and all other CubeSat teams or individuals that may be interested.
+
+We are indebted to you, the community.
+
+ - *With :heart:, the Quetzal-1 CubeSat Team.*
+
+# **Directory Description**
+
 This repository contains the UHF specifications of Quetzal-1, the GNURadio decoder for the satellite and a Python application for data visualization. We also show a method of installing GNURadio 3.7 on Ubuntu 16.04 LTS, which is the software on which this code was tested.
 
 1. [Help us track Quetzal-1!](#user-content-help-us-track-quetzal-1)
@@ -37,7 +61,7 @@ Quetzal-1 was deployed from the Kibo module onboard the International Space Stat
 
 Beacons are encapsulated in AX.25 + HDLC frames, with G3RUH scrambling and NRZI encoding. The following image shows the overall beacon format:
 
-![Beacon Structure](misc/beacon_structure.png)
+![Beacon Structure](media/beacon_structure.png)
 
 The spacecraft’s beacon is sent with a 10 second period. The spreadsheet in `docs/Beacon_Package_Data.xlsx` details both the AX.25 + HDLC structure and the beacon data format.
 
@@ -87,7 +111,7 @@ In the GQRX main GUI, several things must be configured:
 
 Once you've correctly configured this (and making sure you're correctly tracking the downlink frequency for the satellite), connect GQRX with the decoder by clicking on the *UDP* button on the bottom right of the GQRX GUI. Run the decoder and, if all is correct, you should start to see decoded frames printed into the terminal.
 
-![quetzal1 decoded beacons](/misc/quetzal1_decoded_beacons.png)
+![quetzal1 decoded beacons](/media/quetzal1_decoded_beacons.png)
 
 These decoded frames are automatically saved into the `/home/user/Received Data` directory. The decoder saves both the parsed and raw data under the names `raw_beacon_X.dat` and `parsed_beacon_X.txt`, where `X` is the current datetime of your system.
 
@@ -137,7 +161,7 @@ Once this is done, you can run the script by going into the `apps/desktop/` dire
 
 Upon opening the GUI, you can select a beacon to visualize by clicking on *Select Hex* and navigating to one of the decoded `.dat` files (for example, choose the file in `examples/example_beacon_raw.dat`). Once selected, the GUI will automatically start displaying beacons one second at a time (although you can change this by executing the program with the `--interval [value in ms]` flag. More information available on `python3 main.py --help`). You can also scan through the beacons by clicking on the fast-foward and rewind buttons.
 
-![Python GUI](misc/Python_GUI.png)
+![Python GUI](media/Python_GUI.png)
 
 ### Downloading Data from SatNOGS
 
@@ -147,9 +171,16 @@ Upon opening the GUI, you can select a beacon to visualize by clicking on *Selec
 
 You can now view decoded data live by clicking on *Connect to port*, typing `localhost` as the IP address and `1502` as the port to connnect to. Once this is done, you can test it out by running the GNURadio decoder with the example beacon recording (`examples/example_beacon_quetzal1.wav`). Upon doing this, decoded frames will start to appear in the GUI. When tracking Quetzal-1, you can use this feature to view live data.
 
-![Python GUI](misc/Python_GUI_TCP.png)
+![Python GUI](media/Python_GUI_TCP.png)
 
 # GNURadio 3.7 Installation
+
+---
+:warning: **NOTE**
+
+This installation process was written and tested in 2020. It is possible that it may no longer work in its entirety.
+
+---
 
 The decoder was developed for GNURadio 3.7. We show below a process for installing this GNURadio version and other necessary modules in Ubuntu 16.04 LTS. We mainly use [PyBOMBS](https://github.com/gnuradio/pybombs) to install GNURadio.
 
