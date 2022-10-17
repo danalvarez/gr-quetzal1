@@ -10,7 +10,7 @@
 
 # **Un mensaje del equipo de Quetzal-1**
 
-Gracias al soporte de la comunidad internacional de radioaficionados, más de 80,000 paquetes de telemetría se recibieron en los 211 días de operación exitosa de nuestro satélite, entre abril y noviembre del 2020. Mantendremos este repositorio como estaba durante el período que Quetzal-1 estuvo operacional, para referencia futuro de los equipos de nanosatélite (o individuos) que estén interesados.
+Gracias al soporte de la comunidad internacional de radioaficionados, más de 80,000 paquetes de telemetría se recibieron en los 211 días de operación exitosa de nuestro satélite, entre abril y noviembre del 2020. Mantendremos este repositorio como estaba durante el período en que Quetzal-1 estuvo operacional, para referencia futura de los equipos o individuos que estén interesados. Más información del fin de operaciones del satélite está disponible [acá](https://twitter.com/quetzal1_uvg/status/1354169636275826688).
 
 Les debemos una deuda de gratitud a todos ustedes: la comunidad.
 
