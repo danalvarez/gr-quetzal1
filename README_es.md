@@ -1,20 +1,23 @@
 [In English](https://github.com/danalvarez/gr-quetzal1)
 
-# **Repositorios disponibles**
+# **Un mensaje del equipo de Quetzal-1**
+
+Gracias al soporte de la comunidad internacional de radioaficionados, y [SatNOGS](https://satnogs.org/), más de 75,000 paquetes de telemetría se recibieron en los 211 días de operación exitosa de nuestro satélite, entre abril y noviembre del 2020. Hemos publicado estos datos (¡así como todas las fotos :framed_picture: enviadas por el primer satélite guatemalteco!) en el repositorio [quetzal1-telemetry](https://github.com/Quetzal-1-CubeSat-Team/quetzal1-telemetry).
+
+Mantendremos este repositorio como estaba durante el período en que Quetzal-1 estuvo operacional, para referencia futura de los equipos o individuos que estén interesados. Más información del fin de operaciones del satélite está disponible [acá](https://twitter.com/quetzal1_uvg/status/1354169636275826688).
+
+Les debemos una deuda de gratitud a todos ustedes: la comunidad.
+
+ - *Con :heart:, el equipo del satélite Quetzal-1*
+
+ # **Repositorios disponibles**
 
 | Repositorio               | Descripción                                                                                                             |
 |--------------------------|-------------------------------------------------------------------------------------------------------------------------|
 | [quetzal1-hardware](https://github.com/Quetzal-1-CubeSat-Team/quetzal1-hardware)        | Contiene los archivos de *hardware* para Quetzal-1 y sus subsistemas.                                                    |
 | [quetzal1-flight-software](https://github.com/Quetzal-1-CubeSat-Team/quetzal1-flight-software) | Contiene el *software* para Quetzal-1 y sus subsistemas.                                                                 |
+| [quetzal1-telemetry](https://github.com/Quetzal-1-CubeSat-Team/quetzal1-telemetry)              | Contiene toda la telemetría y fotografías enviadas por Quetzal-1 mientras estuvo en órbita. |
 | gr-quetzal1              | Este repositorio. |
-
-# **Un mensaje del equipo de Quetzal-1**
-
-Gracias al soporte de la comunidad internacional de radioaficionados, más de 80,000 paquetes de telemetría se recibieron en los 211 días de operación exitosa de nuestro satélite, entre abril y noviembre del 2020. Mantendremos este repositorio como estaba durante el período en que Quetzal-1 estuvo operacional, para referencia futura de los equipos o individuos que estén interesados. Más información del fin de operaciones del satélite está disponible [acá](https://twitter.com/quetzal1_uvg/status/1354169636275826688).
-
-Les debemos una deuda de gratitud a todos ustedes: la comunidad.
-
- - *Con :heart:, el equipo del satélite Quetzal-1*
 
 # **¡Ayúdanos a escuchar a Quetzal-1!**
 

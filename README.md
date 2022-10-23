@@ -8,21 +8,24 @@
 
 For an overview of Quetzal-1, [read our profile!](https://github.com/Quetzal-1-CubeSat-Team)
 
+# **A note from the Quetzal-1 team**
+
+Thanks to the support of the international radio amateur community, and [SatNOGS](https://satnogs.org/), more than 75,000 telemetry packets were obtained for Quetzal-1, throughout its 211 days of operation from April to November 2020. We have aggregated this data (along with all the pictures :framed_picture: sent by the first Guatemalan satellite!) in the [quetzal1-telemetry](https://github.com/Quetzal-1-CubeSat-Team/quetzal1-telemetry) repository.
+
+We will keep this repository as it was when the satellite was operational, for future reference for any and all other CubeSat teams or individuals that may be interested. For further information on our satellite's end of operations, see [here](https://twitter.com/quetzal1_uvg/status/1354172099649294337). 
+
+We are indebted to you, the community.
+
+ - *With :heart:, the Quetzal-1 CubeSat Team.*
+
 # **Available Repositories**
 
 | Repository               | Description                                                                                                             |
 |--------------------------|-------------------------------------------------------------------------------------------------------------------------|
 | [quetzal1-hardware](https://github.com/Quetzal-1-CubeSat-Team/quetzal1-hardware)        | Contains the hardware design files for Quetzal-1 and its subsystems.                                                    |
 | [quetzal1-flight-software](https://github.com/Quetzal-1-CubeSat-Team/quetzal1-flight-software) | Contains the software for Quetzal-1 and its subsystems.                                                                 |
+| [quetzal1-telemetry](https://github.com/Quetzal-1-CubeSat-Team/quetzal1-telemetry)              | Contains the telemetry and photos transmitted by Quetzal-1 while in orbit. |
 | gr-quetzal1              | This repository. |
-
-# **A note from the Quetzal-1 team**
-
-Thanks to the support of the international radio amateur community, more than 80,000 telemetry packets were obtained for Quetzal-1, throughout its 211 days of operation from April to Novemeber 2020. We will keep this repository as it was when the satellite was operational, for future reference for any and all other CubeSat teams or individuals that may be interested. For further information on our satellite's end of operations, see [here](https://twitter.com/quetzal1_uvg/status/1354172099649294337). 
-
-We are indebted to you, the community.
-
- - *With :heart:, the Quetzal-1 CubeSat Team.*
 
 # **Repository Contents**
 
