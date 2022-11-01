@@ -40,6 +40,7 @@ This repository contains the UHF specifications of Quetzal-1, the GNURadio decod
 		* [Doppler Correction](#user-content-doppler-correction)
 	* [Post-mortem Frame Decoding](#user-content-post-mortem-frame-decoding)
 		* [Example Beacon Recording](#user-content-example-beacon-recording)
+		* [Example Image Recording](#user-content-example-image-recording)
 4. [Python Scripts for Data Visualization ](#user-content-python-scripts-for-data-visualization)
 	* [Post-mortem Beacon Parsing](#user-content-post-mortem-beacon-parsing)
 		* [Downloading Data from SatNOGS](#user-content-downloading-data-from-satnogs)
@@ -199,6 +200,9 @@ You can now view decoded data live by clicking on *Connect to port*, typing `loc
 
 # GNURadio 3.7 Installation
 
+<details>
+  <summary>Click me</summary>
+
 ---
 :warning: **NOTE**
 
@@ -300,3 +304,5 @@ Once this is all done, you may open the GUI for GNURadio by running:
 		cmake --version
 
 	This was taken from Liu Hao Cheng's answer in [this](https://stackoverflow.com/questions/49859457/how-to-reinstall-the-latest-cmake-version) Stackoverflow thread.
+
+</details>
