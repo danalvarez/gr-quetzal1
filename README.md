@@ -35,6 +35,8 @@ This repository contains the UHF specifications of Quetzal-1, the GNURadio decod
 2. [Help us track Quetzal-1!](#user-content-help-us-track-quetzal-1)
 	* [TLE](#user-content-tle)
 	* [UHF Specifications](#user-content-uhf-specifications)
+	* [Beacon Description](#user-content-beacon-description)
+	* [Image Packet Description](#user-content-image-packet-description)
 3. [Downlink Decoder and Parser](#user-content-downlink-decoder-and-parser)
 	* [Live Frame Decoding](#user-content-live-frame-decoding)
 		* [Doppler Correction](#user-content-doppler-correction)
@@ -78,7 +80,7 @@ Thanks to the people at SatNOGS, radio amateurs, Space-Track and Celestrak, Quet
 
 Quetzal-1 was deployed from the Kibo module onboard the International Space Station on April 28, 2020 at 15:20 UTC. About 30 minutes after ejection, it began antenna deployment and beacon transmission. For downlink, Quetzal-1 uses a GOMSpace AX100 transceiver, which  transmits GMSK-modulated data at 4800 bps at 437.200 MHz ([as coordinated by IARU](http://www.amsatuk.me.uk/iaru/finished_detail.php?serialnum=653)).
 
-### Beacon Description
+## Beacon Description
 
 Beacons are encapsulated in AX.25 + HDLC frames, with G3RUH scrambling and NRZI encoding. The following image shows the overall beacon format:
 
@@ -95,7 +97,7 @@ Although it is always sent, we do not use the AX.25 portion of the packet. Howev
 
 ---
 
-### Image Packet Description
+## Image Packet Description
 
 Image packets have the same encapsulation as telemetry packets (beacons). The following image shows the overall format:
 
