@@ -106,15 +106,7 @@ Image packets have the same encapsulation as telemetry packets (beacons). The fo
 
 # Downlink Decoder and Parser
 
-[gr-satellites](https://github.com/daniestevez/gr-satellites) was used in this project to develop an AX.25 + HDLC decoder for data at 4800 bps. The flowgraph in `apps/ax25_decode.grc` can be opened via `gnuradio-companion`. If you installed GNURadio with PyBOMBS into a prefix (as shown in [section 4](#user-content-gnuradio-37-installation)), you can also run the decoder directly by executing:
-
-	cd ~/prefix/default
-	source ./setup_env.sh
-	/usr/bin/python2 -u /home/dan/Documents/repos/gr-quetzal1/apps/ax25_decode.py
-
-**When running the code above, be sure to replace the directory into which you've saved the decoder files.**
-
-The decoder was designed with [live](#user-content-live-frame-decoding) and [post-mortem](#user-content-post-mortem-frame-decoding) decoding in mind. That is, frames from the satellite can be decoded and parsed live via the *UDP source*, or they can be post-processed via the *WAV File Source*.
+[gr-satellites](https://github.com/daniestevez/gr-satellites) was used in this project to develop an AX.25 + HDLC decoder for data at 4800 bps. The flowgraph in `apps/ax25_decode.grc` can be opened via `gnuradio-companion`.
 
 For reference, the flowgraph is shown below. The `Telemetry Forwarder` was used to send decoded beacons to SatNOGS servers for live viewing, and the `ZMQ PUB Sink` can be used for [Live Beacon Parsing](#user-content-live-beacon-parsing).
 
