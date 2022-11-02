@@ -171,6 +171,16 @@ A recording of a picture taken and transmitted by our satellite while in our lab
 
 The `.dat` file contains the image. To view it in Windows, change the file extension to `.jpg` (the converted example image is available [here](./examples/example_image.jpg)).
 
+# Transmitter
+
+The transmitter code was also developed in GNURadio. Just like downlinks, commands are G3RUH-scrambled and NRZI-encoded, but frames are only encapsulated in HDLC, without the AX.25 header.
+
+To the user, the transmitter generates a Python QT GUI developed within GNURadio Companion. [A barebones version of this same GUI](./apps/transmitter/tx_HDLC_doppler_simplified.grc) was developed to simplify the commanding process when taking and downloading photos from the satellite.
+
+The flowgraph is shown below. Each block is commented to explain its purpose.
+
+![tx_flowgraph](/media/tx_flowgraph.png)
+
 # Python Scripts for Data Visualization
 
 Credit: [Aldo Aguilar](https://github.com/AldoAguilarN)
