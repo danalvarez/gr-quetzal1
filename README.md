@@ -78,6 +78,8 @@ Thanks to the people at SatNOGS, radio amateurs, Space-Track and Celestrak, Quet
 
 Quetzal-1 was deployed from the Kibo module onboard the International Space Station on April 28, 2020 at 15:20 UTC. About 30 minutes after ejection, it began antenna deployment and beacon transmission. For downlink, Quetzal-1 uses a GOMSpace AX100 transceiver, which  transmits GMSK-modulated data at 4800 bps at 437.200 MHz ([as coordinated by IARU](http://www.amsatuk.me.uk/iaru/finished_detail.php?serialnum=653)).
 
+### Beacon Description
+
 Beacons are encapsulated in AX.25 + HDLC frames, with G3RUH scrambling and NRZI encoding. The following image shows the overall beacon format:
 
 ![Beacon Structure](media/beacon_structure.png)
@@ -92,6 +94,12 @@ Although it is always sent, we do not use the AX.25 portion of the packet. Howev
 `40 40 40 40 40 40 60 40 40 40 40 40 40 61 03 F0`
 
 ---
+
+### Image Packet Description
+
+Image packets have the same encapsulation as telemetry packets (beacons). The following image shows the overall format:
+
+![Image Structure](media/image_structure.png)
 
 # Downlink Decoder and Parser
 
