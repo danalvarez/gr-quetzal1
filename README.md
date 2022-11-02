@@ -43,11 +43,12 @@ This repository contains the UHF specifications of Quetzal-1, the GNURadio decod
 	* [Post-mortem Frame Decoding](#user-content-post-mortem-frame-decoding)
 		* [Example Beacon Recording](#user-content-example-beacon-recording)
 		* [Example Image Recording](#user-content-example-image-recording)
-4. [Python Scripts for Data Visualization ](#user-content-python-scripts-for-data-visualization)
+4. [Transmitter](#user-content-transmitter)
+5. [Python Scripts for Data Visualization ](#user-content-python-scripts-for-data-visualization)
 	* [Post-mortem Beacon Parsing](#user-content-post-mortem-beacon-parsing)
 		* [Downloading Data from SatNOGS](#user-content-downloading-data-from-satnogs)
 	* [Live Beacon Parsing](#user-content-live-beacon-parsing)
-5. [GNURadio 3.7 Installation](#user-content-gnuradio-37-installation)
+6. [GNURadio 3.7 Installation](#user-content-gnuradio-37-installation)
 	* [Install GNURadio 3.7 Dependencies](#user-content-install-gnuradio-37-dependencies)
 	* [Install Python 2.7 modules for gr-satellites](#user-content-install-python-27-modules-for-gr-satellites)
 	* [PyBOMBS](#user-content-pybombs)
@@ -115,6 +116,10 @@ Image packets have the same encapsulation as telemetry packets (beacons). The fo
 
 The decoder was designed with [live](#user-content-live-frame-decoding) and [post-mortem](#user-content-post-mortem-frame-decoding) decoding in mind. That is, frames from the satellite can be decoded and parsed live via the *UDP source*, or they can be post-processed via the *WAV File Source*.
 
+For reference, the flowgraph is shown below. The `Telemetry Forwarder` was used to send decoded beacons to SatNOGS servers for live viewing, and the `ZMQ PUB Sink` can be used for [Live Beacon Parsing](#user-content-live-beacon-parsing).
+
+![rx_flowgraph](/media/rx_flowgraph.png)
+
 ## Live Frame Decoding
 
 The live decoding feature works with GQRX and a compatible SDR. Locally, we use HackRF, but any SDR should work. In order to decode frames from the satellite, GQRX must first demodulate the incoming frames and then pass on this data into `ax25_decode.grc` via UDP.
@@ -175,9 +180,9 @@ The `.dat` file contains the image. To view it in Windows, change the file exten
 
 The transmitter code was also developed in GNURadio. Just like downlinks, commands are G3RUH-scrambled and NRZI-encoded, but frames are only encapsulated in HDLC, without the AX.25 header.
 
-To the user, the transmitter generates a Python QT GUI developed within GNURadio Companion. [A barebones version of this same GUI](./apps/transmitter/tx_HDLC_doppler_simplified.grc) was developed to simplify the commanding process when taking and downloading photos from the satellite.
+To the user, the transmitter shows a Python QT GUI developed within GNURadio Companion. [A barebones version of this same GUI](./apps/transmitter/tx_HDLC_doppler_simplified.grc) was developed to simplify the commanding process when taking and downloading photos from the satellite.
 
-The flowgraph is shown below. Each block is commented to explain its purpose.
+The flowgraph is shown below. Each block is commented to explain its purpose. The `Generate Command` block contains an embedded Python block, which defines and generates each command.
 
 ![tx_flowgraph](/media/tx_flowgraph.png)
 
