@@ -56,6 +56,7 @@ This repository contains the UHF specifications of Quetzal-1, the GNURadio decod
 	* [Installing gr-satellites](#user-content-installing-gr-satellites)
 	* [Open the GNURadio GUI](#user-content-open-the-gnuradio-gui)
 	* [Troubleshooting](#user-content-troubleshooting)
+7. [How should you cite this repository?](#user-content-how-should-you-cite-this-repository)
 
 # **Directory Description**
 
@@ -323,3 +324,9 @@ Once this is all done, you may open the GUI for GNURadio by running:
 	This was taken from Liu Hao Cheng's answer in [this](https://stackoverflow.com/questions/49859457/how-to-reinstall-the-latest-cmake-version) Stackoverflow thread.
 
 </details>
+
+# How should you cite this repository?
+
+You may cite this repository as shown below. Further information is available in the [CITATION.cff](./CITATION.cff) file.
+
+> Quetzal-1 CubeSat Team. (2022). gr-quetzal1 [Computer software]. https://github.com/danalvarez/gr-quetzal1
