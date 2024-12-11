@@ -1,5 +1,20 @@
 [In English](https://github.com/danalvarez/gr-quetzal1)
 
+# gr-quetzal1
+
+<p align="center">
+<img width="300" src="./media/mission_patch.png">
+</p>
+
+### 📫 ¡Contáctanos!
+
+Si la información publicada aquí fue útil, ¡nos encantaría saberlo! Contáctanos a continuación y cuéntanos cómo podemos ayudarte 🙋‍♀️🙋‍♂️
+
+1. 💌 **Envíanos un correo electrónico:** [satelite@uvg.edu.gt](mailto:satelite@uvg.edu.gt)
+2. 🐦 **Comunícate con nosotros en X:** [@quetzal1_uvg](https://x.com/quetzal1_uvg)
+
+Para obtener una descripción general de Quetzal-1, [¡lee nuestro perfil!](https://github.com/Quetzal-1-CubeSat-Team)
+
 # **Un mensaje del equipo de Quetzal-1**
 
 Gracias al soporte de la comunidad internacional de radioaficionados, y [SatNOGS](https://satnogs.org/), más de 75,000 paquetes de telemetría se recibieron en los 211 días de operación exitosa de nuestro satélite, entre abril y noviembre del 2020. Hemos publicado estos datos (¡así como todas las fotos :framed_picture: enviadas por el primer satélite guatemalteco!) en el repositorio [quetzal1-telemetry](https://github.com/Quetzal-1-CubeSat-Team/quetzal1-telemetry).
