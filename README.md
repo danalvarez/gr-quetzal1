@@ -6,6 +6,13 @@
 <img width="300" src="./media/mission_patch.png">
 </p>
 
+### 📫 Contact Us!
+
+If the information published here was helpful, we'd love to know! Contact us below and let us know how we can help 🙋‍♀️🙋‍♂️!
+
+1. 💌 **Email us:** [satelite@uvg.edu.gt](mailto:satelite@uvg.edu.gt)
+2. 🐦 **Reach out on X:** [@quetzal1_uvg](https://x.com/quetzal1_uvg)
+
 For an overview of Quetzal-1, [read our profile!](https://github.com/Quetzal-1-CubeSat-Team)
 
 # **A note from the Quetzal-1 team**
